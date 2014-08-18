@@ -1,3 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 20px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+}
+
+input[type=text] {
+  font-size: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.description {
+  color: #797979;
+}
+
+.name {
+  font-size: 24px;
+  color: #f23818;
+  text-decoration: none;
+}
+
+.name:hover {
+  text-decoration: underline;
+}
+
+.count {
+  color: #AFAFAF;
+  font-size: 12px;
+}
+
+.footer {
+  margin: 50px 0;
+  text-align: center;
+  color: #AFAFAF;
+}
+
+.footer a {
+  color: #AFAFAF;
+}
+
+
+.not-found {
+  font-size: 24px;
+  text-align: center;
+  margin: 50px 0;
 }

@@ -1,3 +1,17 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<h1>ember-cli addons on npm</h1>
+<p class="count">Packages: {{packageCount}}</p>
 
-{{outlet}}
+{{input type="text" value=query placeholder="Filter addons" autofocus="autofocus"}}
+
+{{#each filteredContent itemController="package"}}
+  <p>
+    <a {{bind-attr href=npmLink}} target="_blank" class="name">{{name}}</a><br>
+    <span class="description">{{description}}</span>
+  </p>
+  <hr>
+{{else}}
+  <p class="not-found">Nothing found for "{{query}}"</p>
+  <hr>
+{{/each}}
+
+<div class="footer">Made by <a href="http://twitter.com/gcollazo">@gcollazo</a> from <a href="http://blimp.io">Blimp</a></div>
