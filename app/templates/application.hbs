@@ -5,8 +5,8 @@
 
 {{#each filteredContent itemController="package"}}
   <p>
-    <a {{bind-attr href=npmLink}} target="_blank" class="name">{{name}}</a><br>
-    <span class="description">{{description}}</span>
+    <a href="{{unbound npmLink}}" target="_blank" class="name">{{unbound name}}</a><br>
+    <span class="description">{{unbound description}}</span>
   </p>
   <hr>
 {{else}}
