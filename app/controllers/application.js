@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
+  queryParams:['query'],
+
   packageCount: function() {
     return this.get('content').length;
   }.property('content'),

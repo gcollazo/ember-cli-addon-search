@@ -1,8 +1,6 @@
-/* global require */
-
-var Application = require('ember-cli-addon-search/app')['default'];
-var Router = require('ember-cli-addon-search/router')['default'];
 import Ember from 'ember';
+import Application from 'ember-cli-addon-search/app';
+import Router from 'ember-cli-addon-search/router';
 
 export default function startApp(attrs) {
   var App;
@@ -10,7 +8,7 @@ export default function startApp(attrs) {
   var attributes = Ember.merge({
     // useful Test defaults
     rootElement: '#ember-testing',
-    LOG_ACTIVE_GENERATION:false,
+    LOG_ACTIVE_GENERATION: false,
     LOG_VIEW_LOOKUPS: false
   }, attrs); // but you can override;
 
@@ -18,7 +16,7 @@ export default function startApp(attrs) {
     location: 'none'
   });
 
-  Ember.run(function(){
+  Ember.run(function() {
     App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();
