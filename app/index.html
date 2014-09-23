@@ -15,13 +15,12 @@
   </head>
   <body>
     <script>
-      window.EmberCliAddonSearchENV = {{ENV}};
-      window.EmberENV = window.EmberCliAddonSearchENV.EmberENV;
+      window.EmberENV = {{EMBER_ENV}};
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/ember-cli-addon-search.js"></script>
     <script>
-      window.EmberCliAddonSearch = require('ember-cli-addon-search/app')['default'].create(EmberCliAddonSearchENV.APP);
+      window.EmberCliAddonSearch = require('ember-cli-addon-search/app')['default'].create({{APP_CONFIG}});
     </script>
   </body>
 </html>
