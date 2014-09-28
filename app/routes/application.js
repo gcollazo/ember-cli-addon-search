@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model: function() {
     var cache = window.localStorage;
 
-    if ('emberCLIAddons' in cache && 'lastUpdate' in cache) {
+    if (cache && 'emberCLIAddons' in cache && 'lastUpdate' in cache) {
       var lastUpdate = (new Date() - new Date(cache.lastUpdate)) / 1000,
           intervalInSeconds = 5 * 60;
 
