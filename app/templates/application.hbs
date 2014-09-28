@@ -5,17 +5,19 @@
 {{input type="text" value=query placeholder="Filter addons" autofocus="autofocus"}}
 
 {{#each filteredContent itemController="package"}}
-  <div class="package-wrapper">
-    <div class="left-column">
-      <a href="{{unbound npmLink}}" target="_blank" class="name">{{unbound name}}</a><br>
-      <div class="description">{{unbound doc.description}}</div>
+  <a href="{{unbound npmLink}}" target="_blank" class="package-link">
+    <div class="package-wrapper">
+      <div class="left-column">
+        <div class="name">{{unbound name}}</div>
+        <div class="description">{{unbound doc.description}}</div>
+      </div>
+      <div class="right-column">
+        <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound doc._npmUser.name}}<br>
+        Modified: {{unbound relative-time doc.time.modified}}<br>
+        Downloads: {{unbound doc.downloads.downloads}}
+      </div>
     </div>
-    <div class="right-column">
-      <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound doc._npmUser.name}}<br>
-      Modified: {{unbound relative-time doc.time.modified}}<br>
-      Downloads: {{unbound doc.downloads.downloads}}
-    </div>
-  </div>
+  </a>
 {{else}}
   <p class="not-found">Nothing found for "{{query}}"</p>
   <hr>
