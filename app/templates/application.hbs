@@ -1,14 +1,21 @@
-<h1>Ember CLI addons on npm {{partial "partials/tweet"}}</h1>
+<div class="twitter-button-wrapper">{{partial "partials/tweet"}}</div>
+<h1 class="branding">Ember CLI Addons</h1>
 <p class="count">Packages: {{packageCount}}</p>
 
 {{input type="text" value=query placeholder="Filter addons" autofocus="autofocus"}}
 
 {{#each filteredContent itemController="package"}}
-  <p>
-    <a href="{{unbound npmLink}}" target="_blank" class="name">{{unbound name}}</a><br>
-    <span class="description">{{unbound description}}</span>
-  </p>
-  <hr>
+  <div class="package-wrapper">
+    <div class="left-column">
+      <a href="{{unbound npmLink}}" target="_blank" class="name">{{unbound name}}</a><br>
+      <div class="description">{{unbound doc.description}}</div>
+    </div>
+    <div class="right-column">
+      <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound doc._npmUser.name}}<br>
+      Modified: {{unbound relative-time doc.time.modified}}<br>
+      Downloads: {{unbound doc.downloads.downloads}}
+    </div>
+  </div>
 {{else}}
   <p class="not-found">Nothing found for "{{query}}"</p>
   <hr>

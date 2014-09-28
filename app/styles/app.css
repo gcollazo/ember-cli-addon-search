@@ -6,19 +6,22 @@ html, body {
   margin: 20px;
 }
 
-hr {
-  border: 0;
-  border-top: 1px solid #ddd;
+.branding {
+  font-size: 62px;
+  font-weight: 100;
+  color: #3f3f3f;
 }
 
 input[type=text] {
   font-size: 20px;
   padding: 10px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .description {
   color: #797979;
+  line-height: 24px;
 }
 
 .name {
@@ -38,6 +41,8 @@ input[type=text] {
 
 .footer {
   margin: 50px 0;
+  float:left;
+  width: 100%;
   text-align: center;
   color: #AFAFAF;
 }
@@ -46,9 +51,72 @@ input[type=text] {
   color: #AFAFAF;
 }
 
-
 .not-found {
   font-size: 24px;
   text-align: center;
   margin: 50px 0;
+}
+
+.package-wrapper {
+  width: 100%;
+  float:left;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 20px 0;
+}
+
+.left-column {
+  width: 80%;
+  float:left;
+  padding-right: 10px;
+}
+
+.right-column {
+  width: 20%;
+  float:left;
+  color: #AFAFAF;
+  font-size: 12px;
+}
+
+.gravatar {
+  width: 30px;
+  height: 30px;
+}
+
+.twitter-button-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+
+
+/* xs */
+@media (min-width: 0px) and (max-width: 767px) {
+  .branding {
+    font-size: 32px;
+  }
+
+  .left-column {
+    width: 100%;
+  }
+
+  .right-column {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* lg */
+@media (min-width: 1200px) {
+
 }

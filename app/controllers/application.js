@@ -13,10 +13,11 @@ export default Ember.ArrayController.extend({
     if (this.get('query')) {
       return this.get('content').filter(function(item) {
         var query = self.get('query').toLowerCase(),
-            name = (item.get('name') || '').toLowerCase(),
-            desc = (item.get('description') || '').toLowerCase();
+            name = (item.name || '').toLowerCase(),
+            desc = (item.doc.description || '').toLowerCase(),
+            author = (item.doc._npmUser.name || '').toLowerCase();
 
-        return name.match(query) || desc.match(query);
+        return name.match(query) || desc.match(query) || author.match(query);
       });
     }
     return this.get('content');
