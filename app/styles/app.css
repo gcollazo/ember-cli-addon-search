@@ -30,13 +30,13 @@ input[type=text] {
   line-height: 24px;
 }
 
-.name {
+.package-link {
   font-size: 24px;
-  color: #f23818;
   text-decoration: none;
+  color: #f23818;
 }
 
-.name:hover {
+.package-link:hover {
   text-decoration: underline;
 }
 

@@ -12,6 +12,7 @@ export default Ember.ObjectController.extend({
   travisBadgeURL: function() {
     var user = this.get('doc.github.user'),
         repo = this.get('doc.github.repo');
-    return 'https://travis-ci.org/'+ user +'/'+ repo +'.svg?branch=master';
+
+    return 'http://img.shields.io/travis/'+ user +'/'+ repo +'/master.svg';
   }.property()
 });
