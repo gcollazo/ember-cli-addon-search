@@ -92,6 +92,9 @@ input[type=text] {
   height: 30px;
 }
 
+.travis-badge {
+  margin-left: 10px;
+}
 
 
 /* xs */
@@ -113,19 +116,29 @@ input[type=text] {
     width: 100%;
     margin-top: 10px;
   }
+
+  .travis-badge {
+    margin-left: 0;
+  }
 }
 
 /* sm */
 @media (min-width: 768px) and (max-width: 991px) {
-
+  .visible-xs {
+    display:none;
+  }
 }
 
 /* md */
 @media (min-width: 992px) and (max-width: 1199px) {
-
+  .visible-xs {
+    display:none;
+  }
 }
 
 /* lg */
 @media (min-width: 1200px) {
-
+  .visible-xs {
+    display:none;
+  }
 }
