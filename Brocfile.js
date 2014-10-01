@@ -19,5 +19,6 @@ var app = new EmberApp();
 
 app.import('bower_components/momentjs/moment.js');
 app.import('bower_components/normalize-css/normalize.css');
+app.import('bower_components/json2/json2.js');
 
 module.exports = app.toTree();
