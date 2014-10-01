@@ -12,7 +12,7 @@
     </div>
     <div class="right-column">
       <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound doc._npmUser.name}}<br>
-      Modified: {{unbound relative-time doc.time.modified}}<br>
+      Modified: {{unbound ago doc.time.modified "LLLL"}}<br>
       Downloads: {{unbound doc.downloads.downloads}} / month
     </div>
   </div>
