@@ -17,7 +17,6 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-app.import('bower_components/momentjs/moment.js');
 app.import('bower_components/normalize-css/normalize.css');
 app.import('bower_components/json2/json2.js');
 
