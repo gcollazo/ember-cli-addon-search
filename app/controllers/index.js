@@ -1,18 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
-  queryParams:['query'],
+  queryParams: ['query'],
 
-  packageCount: function() {
-    return this.get('content').length;
-  }.property('content'),
+  packageCount: Ember.computed.readOnly('content.length'),
 
   filteredContent: function() {
-    var self = this;
+    var controller = this;
 
     if (this.get('query')) {
       return this.get('content').filter(function(item) {
-        var query = self.get('query').toLowerCase(),
+        var query = controller.get('query').toLowerCase(),
             name = (item.name || '').toLowerCase(),
             desc = (item.doc.description || '').toLowerCase(),
             author = (item.doc._npmUser.name || '').toLowerCase();
@@ -21,5 +19,5 @@ export default Ember.ArrayController.extend({
       });
     }
     return this.get('content');
-  }.property('query')
+  }.property('query').readOnly()
 });
