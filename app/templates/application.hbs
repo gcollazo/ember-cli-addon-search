@@ -2,12 +2,24 @@
 <h1 class="branding">Ember Addons</h1>
 <p class="count">Packages: {{packageCount}}</p>
 
-{{input type="text" value=query placeholder="Filter addons" autofocus="autofocus"}}
+{{input type="text"
+        value=query
+        placeholder="Filter addons"
+        autofocus="autofocus"}}
 
 {{#each filteredContent itemController="package"}}
   <div class="package-wrapper">
     <div class="left-column">
-      <div><a href="{{unbound npmLink}}" target="_blank" class="package-link">{{unbound name}}</a><br class="visible-xs"><img src="{{unbound travisBadgeURL}}" onerror="this.style.display='none'" class="travis-badge"></div>
+      <div>
+        <a href="{{unbound npmLink}}"
+           target="_blank"
+           class="package-link">{{unbound name}}</a>
+
+          <br class="visible-xs">
+            <img src="{{unbound travisBadgeURL}}"
+                 onerror="this.style.display='none'"
+                 class="travis-badge">
+      </div>
       <div class="description">{{unbound doc.description}}</div>
     </div>
     <div class="right-column">
@@ -21,4 +33,11 @@
   <hr>
 {{/each}}
 
-<div class="footer">Made by <a href="http://twitter.com/gcollazo">@gcollazo</a> from <a href="http://blimp.io">Blimp</a>. &bull; <a href="https://github.com/gcollazo/ember-cli-addon-search">Source on GitHub</a>.</div>
+<div class="footer">
+  Made by
+  <a href="http://twitter.com/gcollazo">@gcollazo</a>
+  from
+  <a href="http://blimp.io">Blimp</a>.
+  &bull;
+  <a href="https://github.com/gcollazo/ember-cli-addon-search">Source on GitHub</a>.
+</div>
