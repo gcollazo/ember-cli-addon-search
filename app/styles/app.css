@@ -6,6 +6,13 @@ html, body {
   margin: 20px;
 }
 
+hr {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
 .twitter-button-wrapper {
   position: absolute;
   top: 40px;
@@ -40,10 +47,6 @@ input[type=text] {
   text-decoration: underline;
 }
 
-.package-wrapper:hover {
-  background-color: #fafafa;
-}
-
 .count {
   color: #AFAFAF;
   font-size: 12px;
@@ -72,6 +75,10 @@ input[type=text] {
   float:left;
   border-bottom: 1px solid #e6e6e6;
   padding: 20px 0;
+}
+
+.package-wrapper:hover {
+  background-color: #fafafa;
 }
 
 .left-column {
