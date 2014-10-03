@@ -13,6 +13,6 @@ export default Ember.ObjectController.extend({
     var user = this.get('doc.github.user'),
         repo = this.get('doc.github.repo');
 
-    return 'http://img.shields.io/travis/'+ user +'/'+ repo +'/master.svg';
+    return 'https://travis-ci.org/'+ user +'/'+ repo +'.svg?branch=master';
   }.property()
 });
