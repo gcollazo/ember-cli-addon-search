@@ -15,7 +15,6 @@ export default Ember.ArrayController.extend({
             desc = (item.doc.description || '').toLowerCase(),
             author = (item.doc._npmUser.name || '').toLowerCase();
 
-        debugger;
         return name.match(query) || desc.match(query) || author.match(query);
       });
     }
