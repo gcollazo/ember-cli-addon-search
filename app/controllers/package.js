@@ -6,12 +6,12 @@ export default Ember.ObjectController.extend({
   }.property('name'),
 
   gravatarURL: function() {
-    return this.get('doc._npmUser.gravatar') + '?s=30&d=retro';
-  }.property('doc._npmUser.gravatar'),
+    return this.get('_npmUser.gravatar') + '?s=30&d=retro';
+  }.property('_npmUser.gravatar'),
 
   travisBadgeURL: function() {
-    var user = this.get('doc.github.user'),
-        repo = this.get('doc.github.repo');
+    var user = this.get('github.user'),
+        repo = this.get('github.repo');
 
     return 'https://travis-ci.org/'+ user +'/'+ repo +'.svg?branch=master';
   }.property()

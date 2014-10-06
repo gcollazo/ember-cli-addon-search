@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       }
     }
 
-    var url = 'http://ember-addons-server.herokuapp.com/';
+    var url = 'https://io-builtwithember-addons-data.s3.amazonaws.com/addons.json';
     return Ember.$.getJSON(url).then(function(data) {
       cache.emberCLIAddons = JSON.stringify(data);
       cache.lastUpdate = new Date();

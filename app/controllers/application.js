@@ -14,8 +14,8 @@ export default Ember.ArrayController.extend({
       return this.get('content').filter(function(item) {
         var query = searchTerm.toLowerCase(),
             name = (item.name || '').toLowerCase(),
-            desc = (item.doc.description || '').toLowerCase(),
-            author = (item.doc._npmUser.name || '').toLowerCase();
+            desc = (item.description || '').toLowerCase(),
+            author = (item._npmUser.name || '').toLowerCase();
 
         return name.match(query) || desc.match(query) || author.match(query);
       });
