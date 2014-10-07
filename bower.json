@@ -14,7 +14,8 @@
     "qunit": "~1.15.0",
     "momentjs": "^2.8.3",
     "normalize-css": "~3.0.1",
-    "json2": "*"
+    "json2": "*",
+    "bootstrap": "~3.2.0"
   },
   "resolutions": {
     "ember": "canary"

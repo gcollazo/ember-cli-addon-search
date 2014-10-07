@@ -1,5 +1,28 @@
-<div class="twitter-button-wrapper">
-  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://addons.builtwithember.io/" data-text="ember-cli addon search" data-related="BuiltWithEmber" data-count="none" data-hashtags="emberjs">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-</div>
-<h1 class="branding">Ember Addons</h1>
+<header>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+        <h1 class="branding">Ember Addons</h1>
+        <div class="header-subtitle">Listing {{#if packageCount}}{{packageCount}}{{else}}hundreds of{{/if}} modules that extend ember-cli.</div>
+      </div>
+      <div class="col-sm-6">
+        <ul class="list-inline pull-right">
+          <li><a href="https://github.com/gcollazo/ember-cli-addon-search" class="top-menu-link">Fork us</a></li>
+          <li>
+            <a href="https://twitter.com/share" class="twitter-share-button top-menu-link" data-url="http://addons.builtwithember.io/" data-text="ember-cli addon search" data-related="BuiltWithEmber" data-count="none" data-hashtags="emberjs">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          </li>
+        </ul>
+      </div>
+      </div>
+      {{#unless packageCount}}
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="search-wrapper">
+              <input type="text" placeholder="Filter addons" class="form-control search-field" disabled="disabled">
+            </div>
+          </div>
+        </div>
+      {{/unless}}
+    </div>
+</header>

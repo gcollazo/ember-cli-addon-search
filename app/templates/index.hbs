@@ -1,32 +1,68 @@
-<p class="count">Packages: {{packageCount}}</p>
-
-{{input type="text"
-        value=query
-        placeholder="Filter addons"
-        autofocus="autofocus"}}
-
-{{#each filteredContent itemController="package"}}
-  <div class="package-wrapper">
-    <div class="left-column">
-      <div>
-        <a href="{{unbound npmLink}}"
-           target="_blank"
-           class="package-link">{{unbound name}}</a>
-
-          <br class="visible-xs">
-            <img src="{{unbound travisBadgeURL}}"
-                 onerror="this.style.display='none'"
-                 class="travis-badge">
+<div class="search-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        {{input type="text"
+                value=query
+                placeholder="Filter addons"
+                class="form-control search-field"
+                autofocus="autofocus"}}
       </div>
-      <div class="description">{{unbound description}}</div>
-    </div>
-    <div class="right-column">
-      <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound _npmUser.name}}<br>
-      Modified: {{unbound ago time.modified "LLLL"}}<br>
-      Downloads: {{unbound downloads.downloads}} / month
     </div>
   </div>
-{{else}}
-  <p class="not-found">Nothing found for "{{query}}"</p>
-  <hr>
-{{/each}}
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-packages">
+        <thead>
+          <tr>
+            <th>NAME</th>
+            <th class="hidden-xs">OWNER</th>
+            <th class="hidden-xs">DOWNLOADS</th>
+            <th class="hidden-xs">UPDATED</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each filteredContent itemController="package"}}
+            <tr>
+              <td class="cell-name">
+                <a href="{{unbound npmLink}}"
+                   target="_blank"
+                   class="package-link">{{unbound name}}</a>
+                <br>
+                {{unbound description}}
+                <br>
+                <img src="{{unbound travisBadgeURL}}"
+                     onerror="this.style.display='none'"
+                     class="travis-badge">
+                <br class="visible-xs"><br class="visible-xs">
+                <ul class="list-inline visible-xs list-package-details">
+                  <li>Owner: {{unbound _npmUser.name}}</li>
+                  <li>Downloads: {{unbound downloads.downloads}}</li>
+                  <li>Updated: {{unbound ago time.modified "LLLL"}}</li>
+                </ul>
+              </td>
+              <td class="cell-gravatar hidden-xs">
+                <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound _npmUser.name}}
+              </td>
+              <td class="cell-downloads hidden-xs">
+                {{unbound downloads.downloads}}
+              </td>
+              <td class="cell-updated hidden-xs">
+                {{unbound ago time.modified "LLLL"}}
+              </td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="4">
+                <p class="not-found">Nothing found for "{{query}}"</p>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
