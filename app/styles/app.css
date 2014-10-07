@@ -101,6 +101,8 @@ input[type=text] {
 
 .travis-badge {
   margin-left: 10px;
+  width: 98px;
+  height: 18px;
 }
 
 
