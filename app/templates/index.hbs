@@ -1,0 +1,32 @@
+<p class="count">Packages: {{packageCount}}</p>
+
+{{input type="text"
+        value=query
+        placeholder="Filter addons"
+        autofocus="autofocus"}}
+
+{{#each filteredContent itemController="package"}}
+  <div class="package-wrapper">
+    <div class="left-column">
+      <div>
+        <a href="{{unbound npmLink}}"
+           target="_blank"
+           class="package-link">{{unbound name}}</a>
+
+          <br class="visible-xs">
+            <img src="{{unbound travisBadgeURL}}"
+                 onerror="this.style.display='none'"
+                 class="travis-badge">
+      </div>
+      <div class="description">{{unbound description}}</div>
+    </div>
+    <div class="right-column">
+      <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound _npmUser.name}}<br>
+      Modified: {{unbound ago time.modified "LLLL"}}<br>
+      Downloads: {{unbound downloads.downloads}} / month
+    </div>
+  </div>
+{{else}}
+  <p class="not-found">Nothing found for "{{query}}"</p>
+  <hr>
+{{/each}}

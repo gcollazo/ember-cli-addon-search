@@ -3,16 +3,14 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
   queryParams: ['query'],
 
-  packageCount: function() {
-    return this.get('content').length;
-  }.property('content'),
+  packageCount: Ember.computed.readOnly('content.length'),
 
   filteredContent: function() {
-    var searchTerm = this.get('query');
+    var controller = this;
 
-    if (searchTerm) {
+    if (this.get('query')) {
       return this.get('content').filter(function(item) {
-        var query = searchTerm.toLowerCase(),
+        var query = controller.get('query').toLowerCase(),
             name = (item.name || '').toLowerCase(),
             desc = (item.description || '').toLowerCase(),
             author = (item._npmUser.name || '').toLowerCase();
@@ -21,5 +19,5 @@ export default Ember.ArrayController.extend({
       });
     }
     return this.get('content');
-  }.property('query')
+  }.property('query').readOnly()
 });
