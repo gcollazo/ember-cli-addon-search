@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+input::-moz-placeholder {
+  color: green;
+}
+
 body {
   font-size: 16px;
 }
@@ -53,7 +57,7 @@ header {
   border-radius: 0;
   border: 0;
   font-size: 20px;
-  padding: 30px 20px;
+  height: 60px;
 }
 
 .search-field[disabled=disabled] {
