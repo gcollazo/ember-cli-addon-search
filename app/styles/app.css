@@ -117,3 +117,8 @@ header {
   color: #7f7f7f;
   font-weight: bold;
 }
+
+.twitter-badge-list-item {
+  position: relative;
+  top: 3px;
+}
