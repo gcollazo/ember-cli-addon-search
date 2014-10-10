@@ -14,7 +14,7 @@ export default Ember.ObjectController.extend({
         repo = this.get('github.repo');
 
     return 'https://travis-ci.org/'+ user +'/'+ repo +'.svg?branch=master';
-  }.property(),
+  }.property('github.user', 'github.repo'),
 
   npmProfileURL: function() {
     return 'https://npmjs.org/~' + this.get('_npmUser.name');
