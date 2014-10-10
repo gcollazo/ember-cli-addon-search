@@ -15,6 +15,10 @@ header {
   padding: 50px 0 0 0;
 }
 
+a, a:hover, a:active, a:visited {
+  color: #ea3723;
+}
+
 .search-wrapper {
   background-color: #ea3723;
   padding: 20px 0 30px 0;
@@ -100,7 +104,6 @@ header {
 
 .package-link {
   font-size: 24px;
-  color: #ea3723;
 }
 
 .list-package-details {
