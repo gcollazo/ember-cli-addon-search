@@ -39,13 +39,14 @@
                      class="travis-badge">
                 <br class="visible-xs"><br class="visible-xs">
                 <ul class="list-inline visible-xs list-package-details">
-                  <li>Owner: {{unbound _npmUser.name}}</li>
+                  <li>Owner: <a target="_blank" href="{{unbound npmProfileURL}}"}}>{{unbound _npmUser.name}}</a></li>
                   <li>Downloads: {{unbound downloads.downloads}}</li>
                   <li>Updated: {{unbound ago time.modified "LLLL"}}</li>
                 </ul>
               </td>
               <td class="cell-gravatar hidden-xs">
-                <img src="{{unbound gravatarURL}}" class="gravatar"> {{unbound _npmUser.name}}
+                <img src="{{unbound gravatarURL}}" class="gravatar">
+                <a target="_blank" href="{{unbound npmProfileURL}}"}}>{{unbound _npmUser.name}}</a>
               </td>
               <td class="cell-downloads hidden-xs">
                 {{unbound downloads.downloads}}
