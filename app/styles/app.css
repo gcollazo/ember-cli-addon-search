@@ -52,8 +52,8 @@ a, a:hover, a:active, a:visited {
   color: #6b1210;
 }
 
-.top-menu-link,
-.top-menu-link:hover {
+a.top-menu-link,
+a.top-menu-link:hover {
   color: #6b1210;
   font-size: 18px;
 }
