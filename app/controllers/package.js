@@ -18,5 +18,11 @@ export default Ember.ObjectController.extend({
 
   npmProfileURL: function() {
     return 'https://npmjs.org/~' + this.get('_npmUser.name');
-  }.property('_npmUser.name')
+  }.property('_npmUser.name'),
+
+  isNew: function(){
+    var createdMoment = window.moment(this.get('time.created'));
+    var sevenDaysAgo = window.moment().subtract(7, 'days');
+    return createdMoment.isAfter(sevenDaysAgo);
+  }.property()
 });

@@ -106,6 +106,15 @@ a.top-menu-link:hover {
   font-size: 24px;
 }
 
+.new-package {
+  display:inline-block;
+  background-color: #ea3723;
+  margin-bottom: 3px;
+  font-size: 11px;
+  color:white;
+  padding:1px 4px;
+}
+
 .list-package-details {
   font-size: 11px;
 }

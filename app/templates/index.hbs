@@ -37,6 +37,9 @@
                 <img src="{{unbound travisBadgeURL}}"
                      onerror="this.style.display='none'"
                      class="travis-badge">
+                {{#unboundIf isNew}}
+                  <div class="new-package">NEW</div>
+                {{/unboundIf}}
                 <br class="visible-xs"><br class="visible-xs">
                 <ul class="list-inline visible-xs list-package-details">
                   <li>Owner: <a target="_blank" href="{{unbound npmProfileURL}}"}}>{{unbound _npmUser.name}}</a></li>
