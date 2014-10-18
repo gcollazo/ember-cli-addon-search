@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-input::-moz-placeholder {
-  color: green;
-}
-
 body {
   font-size: 16px;
 }
