@@ -2,31 +2,12 @@ import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
   queryParams: ['query'],
-  timer: null,
 
   init: function() {
     this._filteredArray = [];
     this._super();
   },
   packageCount: Ember.computed.readOnly('content.length'),
-
-  queryValueChanged: function() {
-    var timer = this.get('timer');
-
-    if (timer !== null) {
-      // reset timer
-      Ember.run.cancel(timer);
-    }
-
-    // schedule a query param update for later
-    this.set('timer', Ember.run.later(this, function updateQueryParam() {
-      this.set('query', this.get('queryValue'));
-    }, 600));
-  }.observes('queryValue'),
-
-  queryChanged: function() {
-    this.set('queryValue', this.get('query'));
-  }.observes('query'),
 
   filteredContent: function() {
     var controller = this;
@@ -36,7 +17,7 @@ export default Ember.ArrayController.extend({
     var content = this.get('content');
 
     content.forEach(function(item) {
-      var query = controller.get('queryValue');
+      var query = controller.get('query');
 
       var name = (item.name || '').toLowerCase();
       var desc = (item.description || '').toLowerCase();
@@ -55,5 +36,5 @@ export default Ember.ArrayController.extend({
     });
 
     return filtered;
-  }.property('queryValue').readOnly(),
+  }.property('query').readOnly(),
 });
