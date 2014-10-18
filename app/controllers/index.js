@@ -11,17 +11,17 @@ export default Ember.ArrayController.extend({
   packageCount: Ember.computed.readOnly('content.length'),
 
   queryValueChanged: function() {
-    var controller = this;
     var timer = this.get('timer');
 
     if (timer !== null) {
       // reset timer
-      window.clearTimeout(timer);
+      Ember.run.cancel(timer);
     }
 
     // schedule a query param update for later
-    this.set('timer', setTimeout(function updateQueryParam() {
-      controller.set('query', controller.get('queryValue'));
+    this.set('timer', Ember.run.later(this, function updateQueryParam() {
+      console.log('ping', new Date());
+      this.set('query', this.get('queryValue'));
     }, 600));
   }.observes('queryValue'),
 
