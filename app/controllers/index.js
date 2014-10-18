@@ -20,7 +20,6 @@ export default Ember.ArrayController.extend({
 
     // schedule a query param update for later
     this.set('timer', Ember.run.later(this, function updateQueryParam() {
-      console.log('ping', new Date());
       this.set('query', this.get('queryValue'));
     }, 600));
   }.observes('queryValue'),
