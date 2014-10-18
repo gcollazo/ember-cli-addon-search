@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
   queryParams: ['query'],
+  timer: null,
 
   init: function() {
     this._filteredArray = [];
@@ -9,24 +10,35 @@ export default Ember.ArrayController.extend({
   },
   packageCount: Ember.computed.readOnly('content.length'),
 
-  updateQueryParam: function() {
-    this.set('queryProxy', this.get('query'));
+  queryValueChanged: function() {
+    var controller = this;
+    var timer = this.get('timer');
+
+    if (timer !== null) {
+      // reset timer
+      window.clearTimeout(timer);
+    }
+
+    // schedule a query param update for later
+    this.set('timer', setTimeout(function updateQueryParam() {
+      controller.set('query', controller.get('queryValue'));
+    }, 600));
+  }.observes('queryValue'),
+
+  queryChanged: function() {
+    this.set('queryValue', this.get('query'));
   }.observes('query'),
 
   filteredContent: function() {
     var controller = this;
-
-    // Update the query param
-    Ember.run.debounce(this, function(){
-      this.set('query', this.get('queryProxy'));
-    }, 1000);
 
     var count = 0;
     var filtered = this._filteredArray;
     var content = this.get('content');
 
     content.forEach(function(item) {
-      var query = controller.get('queryProxy');
+
+      var query = controller.get('queryValue');
       var name = (item.name || '').toLowerCase();
       var desc = (item.description || '').toLowerCase();
       var author = (item._npmUser.name || '').toLowerCase();
@@ -44,5 +56,5 @@ export default Ember.ArrayController.extend({
     });
 
     return filtered;
-  }.property('queryProxy').readOnly()
+  }.property('queryValue').readOnly(),
 });

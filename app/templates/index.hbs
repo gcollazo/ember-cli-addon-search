@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        {{input type="text"
-                value=queryProxy
+        {{input type="search"
+                value=queryValue
                 placeholder="Filter addons"
                 class="form-control search-field"
                 autofocus="autofocus"}}
@@ -61,7 +61,7 @@
           {{else}}
             <tr>
               <td colspan="4">
-                <p class="not-found">Nothing found for "{{query}}"</p>
+                <p class="not-found">Nothing found for "{{queryValue}}"</p>
               </td>
             </tr>
           {{/each}}
