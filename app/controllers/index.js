@@ -37,8 +37,8 @@ export default Ember.ArrayController.extend({
     var content = this.get('content');
 
     content.forEach(function(item) {
-
       var query = controller.get('queryValue');
+
       var name = (item.name || '').toLowerCase();
       var desc = (item.description || '').toLowerCase();
       var author = (item._npmUser.name || '').toLowerCase();
