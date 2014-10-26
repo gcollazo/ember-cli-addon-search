@@ -25,10 +25,12 @@ var IndexController = Ember.ArrayController.extend({
   itemController: 'package',
   sortProperties: ['sanitizedName'],
   sortAscending:  true,
-  queryParams:    ['query', 'order'],
+  queryParams:    {
+    query: { replcace: true },
+    order: {}
+  },
 
-  query: null,
-
+  query: '',
   order: function (key, value) {
     var m, asc = true, prop;
     if (arguments.length > 1) {
@@ -52,6 +54,16 @@ var IndexController = Ember.ArrayController.extend({
     }
     return sortCodeForProperty(prop) + (asc ? '' : ':desc');
   }.property('sortAscending', 'sortProperties.@each'),
+
+  inputQuery: Ember.computed.oneWay('query'),
+
+  inputQueryDidChange: function () {
+    Ember.run.debounce(this, 'updateQuery', 300);
+  }.observes('inputQuery'),
+
+  updateQuery: function() {
+    this.set('query', this.get('inputQuery') || '');
+  },
 
   actions: {
     toggleSort: function (property) {
