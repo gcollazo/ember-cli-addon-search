@@ -1,53 +1,38 @@
 import Ember from 'ember';
 
-export default Ember.ObjectProxy.extend({
-  sanitizedName: function() {
-    return (this.get('name') || '').trim().toLowerCase();
-  }.property('name').readOnly(),
+// one week
+var NEW_DIFF = 7 * 24 * 60 * 60 * 1000;
 
-  sanitizedAuthorName: function() {
-    return (this.get('authorName') || '').trim().toLowerCase();
-  }.property('authorName').readOnly(),
+export default Ember.Object.extend({
+  // ======= helpers for sorting and searching =====
 
-  sanitizedDownloadCount: function() {
-    return Number(this.get('downloadCount') || 0);
-  }.property('downloadCount').readOnly(),
-
-  sanitizedModifiedAt: function() {
-    return window.moment(this.get('modifiedAt')).unix();
+  '-modified': function () {
+    // by default we want it to be sorted in reverse
+    return -this.get('modifiedAt');
   }.property('modifiedAt').readOnly(),
 
-  sanitizedDescription: function() {
+  '-created': function () {
+    // by default we want it to be sorted in reverse
+    return -this.get('createdAt');
+  }.property('createdAt').readOnly(),
+
+  '-name': function () {
+    return this.get('name').trim().toLowerCase();
+  }.property('name').readOnly(),
+
+  '-owner': function () {
+    return (this.get('owner.name') || '').trim().toLowerCase();
+  }.property('owner.name').readOnly(),
+
+  '-description': function () {
     return (this.get('description') || '').trim().toLowerCase();
   }.property('description').readOnly(),
 
-  npmLink: function () {
-    return 'https://www.npmjs.org/package/' + this.get('name');
-  }.property('name').readOnly(),
-
-  gravatarURL: function () {
-    return this.get('_npmUser.gravatar') + '?s=30&d=retro';
-  }.property('_npmUser.gravatar').readOnly(),
-
-  authorName: Ember.computed.oneWay('_npmUser.name'),
-
-  travisBadgeURL: function () {
-    var user = this.get('github.user'),
-      repo = this.get('github.repo');
-    return 'https://travis-ci.org/' + user + '/' + repo + '.svg?branch=master';
-  }.property('github.user', 'github.repo').readOnly(),
-
-  npmProfileURL: function () {
-    return 'https://npmjs.org/~' + this.get('authorName');
-  }.property('authorName').readOnly(),
+  '-downloads': function () {
+    return this.get('downloadedCount') || 0;
+  }.property('downloadedCount').readOnly(),
 
   isNew: function () {
-    var createdMoment = window.moment(this.get('time.created'));
-    var sevenDaysAgo = window.moment().subtract(7, 'days');
-    return createdMoment.isAfter(sevenDaysAgo);
-  }.property('time.created').readOnly(),
-
-  downloadCount: Ember.computed.oneWay('downloads.downloads'),
-
-  modifiedAt: Ember.computed.oneWay('time.modified')
+    return Date.now() - this.get('createdAt') < NEW_DIFF;
+  }.property('createdAt').readOnly()
 });
