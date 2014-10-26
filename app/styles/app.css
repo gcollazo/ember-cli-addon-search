@@ -161,3 +161,11 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* lg */
 @media (min-width: 1200px) {}
+
+table.table-packages > thead > tr > th[data-ember-action] {
+  cursor: pointer;
+  white-space: nowrap;
+}
+table.table-packages > tbody > tr.hidden {
+  display: none;
+}

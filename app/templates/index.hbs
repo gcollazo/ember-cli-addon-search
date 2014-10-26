@@ -18,15 +18,23 @@
       <table class="table table-packages">
         <thead>
           <tr>
-            <th>NAME</th>
-            <th class="hidden-xs">OWNER</th>
-            <th class="hidden-xs">DOWNLOADS</th>
-            <th class="hidden-xs">UPDATED</th>
+            <th {{action 'toggleSort' 'name'}}>
+              NAME {{sort-order-arrow value=order name='name'}}
+            </th>
+            <th class="hidden-xs" {{action 'toggleSort' 'author'}}>
+              OWNER {{sort-order-arrow value=order name='author'}}
+            </th>
+            <th class="hidden-xs" {{action 'toggleSort' 'downloads'}}>
+              DOWNLOADS {{sort-order-arrow value=order name='downloads'}}
+            </th>
+            <th class="hidden-xs" {{action 'toggleSort' 'modified'}}>
+              UPDATED {{sort-order-arrow value=order name='modified'}}
+            </th>
           </tr>
         </thead>
         <tbody>
-          {{#each filteredContent itemController="package"}}
-            <tr>
+          {{#each}}
+            <tr {{bind-attr class='matchFilters::hidden'}}>
               <td class="cell-name">
                 <a href="{{unbound npmLink}}"
                    target="_blank"
@@ -42,20 +50,20 @@
                      class="travis-badge">
                 <br class="visible-xs"><br class="visible-xs">
                 <ul class="list-inline visible-xs list-package-details">
-                  <li>Owner: <a target="_blank" href="{{unbound npmProfileURL}}"}}>{{unbound _npmUser.name}}</a></li>
+                  <li>Owner: <a target="_blank" href="{{unbound npmProfileURL}}">{{unbound authorName}}</a></li>
                   <li>Downloads: {{unbound downloads.downloads}}</li>
                   <li>Updated: {{unbound ago time.modified "LLLL"}}</li>
                 </ul>
               </td>
               <td class="cell-gravatar hidden-xs">
                 <img src="{{unbound gravatarURL}}" class="gravatar">
-                <a target="_blank" href="{{unbound npmProfileURL}}"}}>{{unbound _npmUser.name}}</a>
+                <a target="_blank" href="{{unbound npmProfileURL}}">{{unbound authorName}}</a>
               </td>
               <td class="cell-downloads hidden-xs">
-                {{unbound downloads.downloads}}
+                {{unbound downloadCount}}
               </td>
               <td class="cell-updated hidden-xs">
-                {{unbound ago time.modified "LLLL"}}
+                {{unbound ago modifiedAt "LLLL"}}
               </td>
             </tr>
           {{else}}
