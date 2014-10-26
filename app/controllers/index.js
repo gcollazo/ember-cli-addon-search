@@ -37,7 +37,7 @@ var IndexController = Ember.ArrayController.extend({
         asc = m.pop() !== 'desc';
       }
       prop = m.shift();
-      if (!prop in SORT_PROPERTIES_MAP) {
+      if (!(prop in SORT_PROPERTIES_MAP)) {
         prop = 'name';
       }
       prop = SORT_PROPERTIES_MAP[prop];
