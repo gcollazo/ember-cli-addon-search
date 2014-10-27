@@ -25,6 +25,7 @@
     "ember-cli-ic-ajax": "0.1.1",
     "ember-cli-inject-live-reload": "^1.2.2",
     "ember-cli-qunit": "0.1.0",
+    "ember-img-cache": "0.0.2",
     "ember-moment": "^0.1.0",
     "express": "^4.8.5",
     "glob": "^4.0.5"

@@ -45,9 +45,7 @@
               <div class="description">
                 {{unbound description}}
               </div>
-              <img src="{{unbound githubRepo.travisBadgeUrl}}"
-                   onerror="this.style.display='none'"
-                   class="travis-badge">
+              {{img githubRepo.travisBadgeUrl class="travis-badge"}}
               <br class="visible-xs"><br class="visible-xs">
               <ul class="list-inline visible-xs list-package-details">
                 <li>Owner: <a target="_blank"
@@ -57,7 +55,7 @@
               </ul>
             </td>
             <td class="cell-gravatar hidden-xs">
-              <img src="{{unbound owner.gravatarUrl}}" class="gravatar">
+              {{img owner.gravatarUrl class="gravatar"}}
               <a target="_blank" href="{{unbound owner.profileUrl}}">{{unbound owner.name}}</a>
             </td>
             <td class="cell-downloads hidden-xs">

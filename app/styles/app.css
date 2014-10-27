@@ -169,3 +169,7 @@ table.table-packages > thead > tr > th[data-ember-action] {
 table.table-packages > tbody > tr.hidden {
   display: none;
 }
+
+img.-eic-loading, img.-eic-error {
+  display: none;
+}
