@@ -33,45 +33,53 @@
         </tr>
         </thead>
         <tbody>
-        {{#each}}
-          <tr {{bind-attr class='matchFilters::hidden'}}>
-            <td class="cell-name">
-              <a href="{{unbound npmUrl}}"
-                 target="_blank"
-                 class="package-link">{{unbound name}}</a>
-              {{#unboundIf isNew}}
-                <div class="new-package">NEW</div>
-              {{/unboundIf}}
-              <div class="description">
-                {{unbound description}}
-              </div>
-              {{img githubRepo.travisBadgeUrl class="travis-badge"}}
-              <br class="visible-xs"><br class="visible-xs">
-              <ul class="list-inline visible-xs list-package-details">
-                <li>Owner: <a target="_blank"
-                              href="{{unbound owner.profileUrl}}">{{unbound owner.name}}</a></li>
-                <li>Downloads: {{unbound downloadedCount}}</li>
-                <li>Updated: {{unbound ago modifiedAt "LLLL"}}</li>
-              </ul>
-            </td>
-            <td class="cell-gravatar hidden-xs">
-              {{img owner.gravatarUrl class="gravatar"}}
-              <a target="_blank" href="{{unbound owner.profileUrl}}">{{unbound owner.name}}</a>
-            </td>
-            <td class="cell-downloads hidden-xs">
-              {{unbound downloadedCount}}
-            </td>
-            <td class="cell-updated hidden-xs">
-              {{unbound ago modifiedAt "LLLL"}}
-            </td>
-          </tr>
+        {{#if hasMatch}}
+          {{#each}}
+            <tr {{bind-attr class='matchFilters::hidden'}}>
+              <td class="cell-name">
+                <a href="{{unbound npmUrl}}"
+                   target="_blank"
+                   class="package-link">{{unbound name}}</a>
+                {{#unboundIf isNew}}
+                  <div class="new-package">NEW</div>
+                {{/unboundIf}}
+                <div class="description">
+                  {{unbound description}}
+                </div>
+                {{img githubRepo.travisBadgeUrl class="travis-badge"}}
+                <br class="visible-xs"><br class="visible-xs">
+                <ul class="list-inline visible-xs list-package-details">
+                  <li>Owner: <a target="_blank"
+                                href="{{unbound owner.profileUrl}}">{{unbound owner.name}}</a></li>
+                  <li>Downloads: {{unbound downloadedCount}}</li>
+                  <li>Updated: {{unbound ago modifiedAt "LLLL"}}</li>
+                </ul>
+              </td>
+              <td class="cell-gravatar hidden-xs">
+                {{img owner.gravatarUrl class="gravatar"}}
+                <a target="_blank" href="{{unbound owner.profileUrl}}">{{unbound owner.name}}</a>
+              </td>
+              <td class="cell-downloads hidden-xs">
+                {{unbound downloadedCount}}
+              </td>
+              <td class="cell-updated hidden-xs">
+                {{unbound ago modifiedAt "LLLL"}}
+              </td>
+            </tr>
+          {{/each}}
         {{else}}
           <tr>
             <td colspan="4">
-              <p class="not-found">Nothing found for "{{searchInput}}"</p>
+              <p class="not-found">
+                {{#if isFiltering}}
+                  Filtering modules...
+                {{else}}
+                  Nothing found for "{{searchInput}}"
+                {{/if}}
+              </p>
             </td>
           </tr>
-        {{/each}}
+        {{/if}}
         </tbody>
       </table>
     </div>
