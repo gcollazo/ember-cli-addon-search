@@ -18,6 +18,7 @@ export default Ember.ArrayController.extend({
 
     content.forEach(function(item) {
       var query = controller.get('query');
+
       var name = (item.name || '').toLowerCase();
       var desc = (item.description || '').toLowerCase();
       var author = (item._npmUser.name || '').toLowerCase();
@@ -35,5 +36,5 @@ export default Ember.ArrayController.extend({
     });
 
     return filtered;
-  }.property('query').readOnly()
+  }.property('query').readOnly(),
 });
