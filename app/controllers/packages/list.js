@@ -6,8 +6,8 @@ export default Ember.ArrayController.extend({
   itemController: 'packages/item',
 
   queryParams: {
-    query:     {as: 'q', replace: true},
-    qpSort:    's',
+    query: {as: 'q', replace: true},
+    qpSort: 's',
     qpReverse: 'r'
   },
 
@@ -21,7 +21,7 @@ export default Ember.ArrayController.extend({
   query:          '',
 
   // beautify or parse the sort QP
-  qpSort:         function (key, value) {
+  qpSort: function (key, value) {
     if (arguments.length > 1) {
       this.set('sortProperties', ['-' + value]);
     }
@@ -29,7 +29,7 @@ export default Ember.ArrayController.extend({
   }.property('sortProperties.firstObject'),
 
   // beatify or parse the sort order QP
-  qpReverse:      function (key, value) {
+  qpReverse: function (key, value) {
     if (arguments.length > 1) {
       this.set('sortAscending', !value);
     }
@@ -37,7 +37,7 @@ export default Ember.ArrayController.extend({
   }.property('sortAscending'),
 
   // used by the input box
-  searchInput:    function (key, value) {
+  searchInput: function (key, value) {
     if (arguments.length > 1) {
       this.set('isFiltering', true);
       Ember.run.debounce(this, 'updateQuery', value, 300);
@@ -50,13 +50,13 @@ export default Ember.ArrayController.extend({
 
   // in a function so that we can debounce it => the filtering and refreshing of URL isn't done on
   // each char
-  updateQuery:    function (value) {
+  updateQuery: function (value) {
     this.set('isFiltering', false);
     this.set('query', value || '');
   },
 
   // whether we have some items matching the filters or not
-  hasMatch:       function () {
+  hasMatch: function () {
     return !!this.findBy('matchFilters', true);
   }.property('@each.matchFilters').readOnly(),
 
