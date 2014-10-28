@@ -51,7 +51,7 @@
                 <ul class="list-inline visible-xs list-package-details">
                   <li>Owner: <a target="_blank"
                                 href="{{unbound owner.profileUrl}}">{{unbound owner.name}}</a></li>
-                  <li>Downloads: {{unbound downloadedCount}}</li>
+                  <li>Downloads: {{unbound digit-grouping downloadedCount}}</li>
                   <li>Updated: {{unbound ago modifiedAt "LLLL"}}</li>
                 </ul>
               </td>
@@ -60,7 +60,7 @@
                 <a target="_blank" href="{{unbound owner.profileUrl}}">{{unbound owner.name}}</a>
               </td>
               <td class="cell-downloads hidden-xs">
-                {{unbound downloadedCount}}
+                {{unbound digit-grouping downloadedCount}}
               </td>
               <td class="cell-updated hidden-xs">
                 {{unbound ago modifiedAt "LLLL"}}
