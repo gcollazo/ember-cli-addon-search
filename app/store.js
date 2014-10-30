@@ -15,6 +15,14 @@ function date(dt) {
   return new Date(dt);
 }
 
+function recordArrayFromIndex(index) {
+  var records = [];
+  for (var k in index) {
+    records.push(index[k]);
+  }
+  return records;
+}
+
 export default Ember.Object.extend({
   /**
    * Source URL where to get the package list from
@@ -199,7 +207,7 @@ export default Ember.Object.extend({
    * @private
    */
   _all: function (model) {
-    var self = this, records, cache;
+    var self = this;
     if (this._ajaxPromise) {
       return this._ajaxPromise;
     }
@@ -209,19 +217,14 @@ export default Ember.Object.extend({
           self._parse(results);
           self._since = Date.now();
           self._ajaxPromise = null;
-          records = [];
-          cache = self._recordsCache[model];
-          for (var k in cache) {
-            records.push(cache[k]);
-          }
-          return records;
+          return recordArrayFromIndex(self._recordsCache[model]);
         })
         .catch(function (error) {
           self._ajaxPromise = null;
           return error;
         });
     }
-    return Ember.RSVP.resolve(this._data.content);
+    return Ember.RSVP.resolve(recordArrayFromIndex(self._recordsCache[model]));
   },
 
 
@@ -274,7 +277,7 @@ export default Ember.Object.extend({
       pkgRecord.name = pkg.name;
       pkgRecord.description = (pkg.description || '').trim();
       pkgRecord.createdAt = date(pkg.time.created);
-      pkgRecord.modifiedAt = date(pkg.time.created);
+      pkgRecord.modifiedAt = date(pkg.time.modified);
       pkgRecord.homePageUrl = pkg.homepage.url;
       pkgRecord.keywords = pkg.keywords.without('ember-data');
       pkgRecord.repositoryUrl = pkg.repository.url;
