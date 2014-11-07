@@ -178,3 +178,11 @@ table.table-packages > tbody > tr.hidden {
 img.-eic-loading, img.-eic-error {
   display: none;
 }
+
+img.travis-badge {
+  position: relative;
+  float: right;
+  top: 8px;
+  left: -10px;
+  opacity: 0.6;
+}
