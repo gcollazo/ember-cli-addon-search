@@ -15,6 +15,10 @@ a, a:hover, a:active, a:visited {
   color: #ea3723;
 }
 
+a span.name-prefix {
+  opacity: 0.33;
+}
+
 .search-wrapper {
   background-color: #ea3723;
   padding: 20px 0 30px 0;
