@@ -30,6 +30,9 @@
           <th class="hidden-xs" {{action 'toggleSort' 'modified'}}>
             UPDATED {{sort-order-arrow subject=this name='-modified'}}
           </th>
+          <th class="hidden-xs">
+            TESTS
+          </th>
         </tr>
         </thead>
         <tbody>
@@ -43,7 +46,6 @@
                 {{#unboundIf isNew}}
                   <div class="new-package">NEW</div>
                 {{/unboundIf}}
-                {{img githubRepo.travisBadgeUrl class="travis-badge"}}
                 <div class="description">
                   {{unbound description}}
                 </div>
@@ -65,11 +67,14 @@
               <td class="cell-updated hidden-xs">
                 {{unbound ago modifiedAt "LLLL"}}
               </td>
+              <td class="cell-travis hidden-xs">
+                {{img githubRepo.travisBadgeUrl class="travis-badge"}}
+              </td>
             </tr>
           {{/each}}
         {{else}}
           <tr>
-            <td colspan="4">
+            <td colspan="5">
               <p class="not-found">
                 {{#if isFiltering}}
                   Filtering modules...

@@ -80,7 +80,8 @@ input[type="search"]::-webkit-search-cancel-button {
 .cell-name,
 .cell-gravatar,
 .cell-downloads,
-.cell-updated {
+.cell-updated,
+.cell-travis {
   vertical-align: middle !important;
   color: #7f7f7f;
 }
@@ -145,21 +146,25 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* xs */
 @media (min-width: 0px) and (max-width: 767px) {
- .branding {
-  font-size: 47px;
- }
- .header-subtitle {
-  font-size: 14px;
- }
+  .branding {
+    font-size: 47px;
+  }
+  .header-subtitle {
+    font-size: 14px;
+  }
 
- .description  {
-  word-wrap: break-word;
-  width: 270px;
- }
+  .description  {
+    word-wrap: break-word;
+    width: 270px;
+  }
 }
 
 /* sm */
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+  .description  {
+    width: 220px;
+  }
+}
 
 /* md */
 @media (min-width: 992px) and (max-width: 1199px) {}
@@ -177,12 +182,4 @@ table.table-packages > tbody > tr.hidden {
 
 img.-eic-loading, img.-eic-error {
   display: none;
-}
-
-img.travis-badge {
-  position: relative;
-  float: right;
-  top: 8px;
-  left: -10px;
-  opacity: 0.6;
 }
