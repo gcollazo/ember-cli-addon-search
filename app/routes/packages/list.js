@@ -2,7 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function () {
-    return this.store.findAll('package');
+    return this.store.findAll('package').then(function(packages){
+      return packages.reject(function(pkg) {
+        return pkg.get('-name').match(/^ember-cli-fill-murray-/);
+      });
+    });
   },
 
   setupController: function (controller, model) {
