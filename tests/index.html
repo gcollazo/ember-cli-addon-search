@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/ember-cli-addon-search.css">
     <link rel="stylesheet" href="assets/test-support.css">
+    {{content-for 'head-footer'}}
+    {{content-for 'test-head-footer'}}
     <style>
       #ember-testing-container {
         position: absolute;
@@ -30,6 +32,8 @@
     </style>
   </head>
   <body>
+    {{content-for 'body'}}
+    {{content-for 'test-body'}}
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
 
@@ -38,5 +42,7 @@
     <script src="assets/ember-cli-addon-search.js"></script>
     <script src="testem.js"></script>
     <script src="assets/test-loader.js"></script>
+    {{content-for 'body-footer'}}
+    {{content-for 'test-body-footer'}}
   </body>
 </html>
