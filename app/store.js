@@ -278,19 +278,11 @@ export default Ember.Object.extend({
       pkgRecord.description = (pkg.description || '').trim();
       pkgRecord.createdAt = date(pkg.time.created);
       pkgRecord.modifiedAt = date(pkg.time.modified);
-      pkgRecord.homePageUrl = pkg.homepage.url;
-      pkgRecord.keywords = pkg.keywords.without('ember-data');
-      pkgRecord.repositoryUrl = pkg.repository.url;
       pkgRecord.authorName = pkg.author ? pkg.author.name : pkg._npmUser.name;
       pkgRecord.owner = parseNpmUser(pkg._npmUser);
       pkgRecord.githubUser = parseGithubUser(pkg.github);
       pkgRecord.githubRepo = parseGithubRepo(pkg.github);
-      pkgRecord.license = pkg.license;
-      pkgRecord.bugUrl = pkg.bugs.url;
-      pkgRecord.starredCount = pkg.starred.length;
       pkgRecord.downloadedCount = pkg.downloads.downloads;
-      pkgRecord.firstDownloadedAt = date(pkg.downloads.start);
-      pkgRecord.lastDownloadedAt = date(pkg.downloads.end);
       pkgRecord.npmUrl = 'https://www.npmjs.org/package/' + pkg.name;
 
       self.createOrUpdateRecord('package', pkgRecord);
