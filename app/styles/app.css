@@ -91,12 +91,12 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .cell-gravatar {
-  width: 200px;
+  width: 220px;
 }
 
 .cell-downloads,
 .cell-updated {
-  width: 120px;
+  width: 130px;
 }
 
 .table-packages {
