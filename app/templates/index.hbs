@@ -1,0 +1,35 @@
+{{input type="text" value=query}}
+
+packages: {{packageCount}}
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        {{#em-sort-button sort="sortByName"}}
+          NAME
+        {{/em-sort-button}}
+      </th>
+      <th>
+        {{#em-sort-button sort="sortByOwner"}}
+          OWNER
+        {{/em-sort-button}}
+      </th>
+      <th>
+        {{#em-sort-button sort="sortByDownloads"}}
+          DOWNLOADS
+        {{/em-sort-button}}
+      </th>
+      <th>
+        {{#em-sort-button sort="sortByUpdated"}}
+          UPDATED
+        {{/em-sort-button}}
+      </th>
+    </tr>
+  </thead>
+  <tbody class="table-body">
+    {{#each pkg in model}}
+      {{em-pkg pkg=pkg query=query}}
+    {{/each}}
+  </tbody>
+</table>
