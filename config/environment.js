@@ -16,6 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      'img-src': 'https://secure.gravatar.com',
+      'connect-src': 'https://io-builtwithember-addons-data.s3.amazonaws.com'
     }
   };
 
