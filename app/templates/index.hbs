@@ -1,6 +1,6 @@
 {{input type="text" value=query}}
 
-packages: {{packageCount}}
+packages: {{unbound packageCount}}
 
 <table>
   <thead>
@@ -28,7 +28,7 @@ packages: {{packageCount}}
     </tr>
   </thead>
   <tbody class="table-body">
-    {{#each pkg in model}}
+    {{#each model as |pkg|}}
       {{em-pkg pkg=pkg query=query}}
     {{/each}}
   </tbody>

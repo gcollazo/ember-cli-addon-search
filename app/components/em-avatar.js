@@ -7,5 +7,5 @@ export default Ember.Component.extend({
 
   npmURL: function() {
     return 'https://npmjs.org/~' + this.get('user.name');
-  }.property('user.name')
+  }.property('user.name').readOnly()
 });
