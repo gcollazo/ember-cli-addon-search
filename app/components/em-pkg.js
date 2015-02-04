@@ -10,6 +10,7 @@ export default Ember.Component.extend({
   description: Ember.computed.alias('pkg.description'),
   downloads: Ember.computed.alias('pkg.downloads.downloads'),
   updated: Ember.computed.alias('pkg.time.modified'),
+  created: Ember.computed.alias('pkg.time.created'),
 
   npmPackageURL: function() {
     return 'https://npmjs.org/' + this.get('pkg.name');

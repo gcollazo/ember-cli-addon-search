@@ -1,0 +1,52 @@
+<div class="search-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        {{input type="search"
+        value=query
+        placeholder="Filter addons"
+        class="form-control search-field"
+        autofocus="autofocus"
+        on="change"}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-packages">
+        <thead>
+          <tr>
+            <th>
+              {{#em-sort-button sort="sortByName"}}
+                NAME
+              {{/em-sort-button}}
+            </th>
+            <th class="hidden-xs">
+              {{#em-sort-button sort="sortByOwner"}}
+                OWNER
+              {{/em-sort-button}}
+            </th>
+            <th class="hidden-xs">
+              {{#em-sort-button sort="sortByDownloads"}}
+                DOWNLOADS
+              {{/em-sort-button}}
+            </th>
+            <th class="hidden-xs">
+              {{#em-sort-button sort="sortByUpdated"}}
+                UPDATED
+              {{/em-sort-button}}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each model as |pkg|}}
+            {{em-pkg pkg=pkg query=query}}
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

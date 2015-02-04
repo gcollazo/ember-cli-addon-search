@@ -3,10 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   queryParams: ['query'],
 
-  packageCount: function() {
-    return this.get('model').length;
-  }.property('model').readOnly(),
-
   actions: {
     sortByName: function(reverse) {
       var sorted =  this.get('model').sortBy('name');
