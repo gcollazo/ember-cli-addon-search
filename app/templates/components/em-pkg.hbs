@@ -1,0 +1,27 @@
+<td class="cell-name">
+  <a href="{{unbound npmPackageURL}}"
+     target="_blank"
+     class="package-link">{{unbound split-prefix name}}</a>
+  {{em-is-new createdDate=created}}
+  <div class="description">
+    {{unbound description}}
+  </div>
+  <br class="visible-xs"><br class="visible-xs">
+  <ul class="list-inline visible-xs list-package-details">
+    <li>Owner: {{em-owner-link user=pkg._npmUser}}</li>
+    <li>Downloads: {{unbound digit-grouping downloads}}</li>
+    <li>Updated: {{unbound ago updated "LLLL"}}</li>
+  </ul>
+</td>
+<td class="cell-gravatar hidden-xs">
+  {{em-avatar user=pkg._npmUser}}
+</td>
+<td class="cell-downloads hidden-xs">
+  {{unbound digit-grouping downloads}}
+</td>
+<td class="cell-updated hidden-xs">
+  {{unbound ago updated "LLLL"}}
+</td>
+<td class="cell-travis hidden-xs">
+  {{em-travis-badge github=github}}
+</td>

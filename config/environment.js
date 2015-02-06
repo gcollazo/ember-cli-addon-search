@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ember-cli-addon-search',
+    modulePrefix: 'ember-addons-website',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
