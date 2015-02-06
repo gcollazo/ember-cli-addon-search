@@ -39,12 +39,20 @@
                 UPDATED
               {{/em-sort-button}}
             </th>
+            <th class="hidden-xs">
+              TESTS
+            </th>
           </tr>
         </thead>
         <tbody>
           {{#each model as |pkg|}}
             {{em-pkg pkg=pkg query=query}}
           {{/each}}
+          {{#em-if-nothing-found signal=query}}
+            <td colspan="5">
+              <p class="not-found">Nothing found for "{{query}}"</p>
+            </td>
+          {{/em-if-nothing-found}}
         </tbody>
       </table>
     </div>
