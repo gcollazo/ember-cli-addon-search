@@ -5,5 +5,5 @@ export default Ember.Component.extend({
 
   profileUrl: function() {
     return 'https://npmjs.org/~/' + this.get('user.name');
-  }.property('user.name')
+  }.property('user.name').readOnly()
 });

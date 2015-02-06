@@ -5,13 +5,13 @@ export default Ember.Component.extend({
   classNames: ['package'],
   classNameBindings: ['matchFilter:visible:hidden'],
 
-  owner: Ember.computed.alias('pkg._npmUser.name'),
-  name: Ember.computed.alias('pkg.name'),
-  description: Ember.computed.alias('pkg.description'),
-  downloads: Ember.computed.alias('pkg.downloads.downloads'),
-  updated: Ember.computed.alias('pkg.time.modified'),
-  created: Ember.computed.alias('pkg.time.created'),
-  github: Ember.computed.alias('pkg.github'),
+  owner: Ember.computed.readOnly('pkg._npmUser.name'),
+  name: Ember.computed.readOnly('pkg.name'),
+  description: Ember.computed.readOnly('pkg.description'),
+  downloads: Ember.computed.readOnly('pkg.downloads.downloads'),
+  updated: Ember.computed.readOnly('pkg.time.modified'),
+  created: Ember.computed.readOnly('pkg.time.created'),
+  github: Ember.computed.readOnly('pkg.github'),
 
   npmPackageURL: function() {
     return 'https://npmjs.org/' + this.get('pkg.name');
