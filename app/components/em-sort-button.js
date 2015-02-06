@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   actions: {
     sort: function() {
       this.toggleProperty('reverseSort');
-      this.sendAction('sort', this.get('reverseSort'));
+      this.sendAction('sort', this.get('by'), this.get('reverseSort'));
     }
   }
 });

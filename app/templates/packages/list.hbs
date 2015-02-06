@@ -20,22 +20,22 @@
         <thead>
           <tr>
             <th>
-              {{#em-sort-button sort="sortByName"}}
+              {{#em-sort-button sort="sortBy" by="name"}}
                 NAME
               {{/em-sort-button}}
             </th>
             <th class="hidden-xs">
-              {{#em-sort-button sort="sortByOwner"}}
+              {{#em-sort-button sort="sortBy" by="_npmUser.name"}}
                 OWNER
               {{/em-sort-button}}
             </th>
             <th class="hidden-xs">
-              {{#em-sort-button sort="sortByDownloads"}}
+              {{#em-sort-button sort="sortBy" by="downloads.downloads"}}
                 DOWNLOADS
               {{/em-sort-button}}
             </th>
             <th class="hidden-xs">
-              {{#em-sort-button sort="sortByUpdated"}}
+              {{#em-sort-button sort="sortBy" by="time.modified"}}
                 UPDATED
               {{/em-sort-button}}
             </th>
