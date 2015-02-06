@@ -91,13 +91,17 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .cell-gravatar {
-  width: 210px;
+  width: 190px;
 }
 
 .cell-downloads,
-.cell-updated,
+.cell-updated {
+  width: 130px;
+}
+
 .cell-travis {
-  width: 115px;
+  padding: 0;
+  width: 100px;
 }
 
 a.sort-button {
