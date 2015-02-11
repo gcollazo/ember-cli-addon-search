@@ -52,9 +52,15 @@
           {{/if}}
           <tr class="pagination-row">
             <td colspan="4" class="pagination-cell">
-              <button {{bind-attr class=":pagination-link hasPreviousPage:enabled:disabled" disabled="previousDisabled"}} {{action 'previousPage'}}>Previous</button>
+              <button
+                {{bind-attr class=":pagination-link hasPreviousPage:enabled:disabled"
+                disabled="previousDisabled"}}
+                {{action 'previousPage'}}>Previous</button>
 
-              <button {{bind-attr class=":pagination-link hasNextPage:enabled:disabled" disabled="nextDisabled"}} {{action 'nextPage'}}>Next</button>
+              <button
+                {{bind-attr class=":pagination-link hasNextPage:enabled:disabled"
+                disabled="nextDisabled"}}
+                {{action 'nextPage'}}>Next</button>
             </td>
           </tr>
         </tbody>
