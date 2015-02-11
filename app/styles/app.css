@@ -153,6 +153,40 @@ a.sort-button {
   top: 3px;
 }
 
+
+.pagination-cell {
+  text-align: center;
+}
+
+.pagination-link,
+.pagination-link:visited {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 20px;
+  width: 200px;
+  border-radius: 3px;
+  border: 2px solid #d5d5d5;
+  background-color: #FFF;
+  color: #7f7f7f;
+  outline:none;
+}
+
+.pagination-link:active {
+  background-color: #bfbfbf !important;
+}
+
+.pagination-link.enabled:hover {
+  color: #FFF;
+  background-color: #d6d6d6;
+}
+
+.pagination-link.disabled {
+  color: #d9d9d9;
+  border: 2px solid #d9d9d9;
+}
+
+
+
 /* xs */
 @media (min-width: 0px) and (max-width: 767px) {
   .branding {
