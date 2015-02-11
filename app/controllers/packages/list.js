@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   queryParams: ['query'],
 
   offset: 0,
-  limit: 20,
+  limit: 12,
 
   foundCount: 0,
   nothingFound: Ember.computed.equal('foundCount', 0),
@@ -34,7 +34,7 @@ export default Ember.Controller.extend({
 
   hasPreviousPage: function() {
     return this.get('offset') !== 0;
-  }.property('offset'),
+  }.property('offset').readOnly(),
 
   hasNextPage: function() {
     var offset = this.get('offset'),
@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
         length = this.get('foundCount');
 
     return (offset + limit) < length;
-  }.property('offset', 'limit', 'foundCount'),
+  }.property('offset', 'limit', 'foundCount').readOnly(),
 
   actions: {
     sortBy: function(by, reverse) {
