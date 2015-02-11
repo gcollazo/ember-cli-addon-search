@@ -1,7 +1,7 @@
 {
   "name": "ember-addons-website",
-  "version": "0.0.0",
-  "description": "Small description for ember-addons-website goes here",
+  "version": "1.0.0",
+  "description": "Search hundreds of modules that extend ember-cli.",
   "private": true,
   "directories": {
     "doc": "doc",
