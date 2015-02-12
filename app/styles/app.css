@@ -52,6 +52,10 @@ a span.name-prefix {
   color: #6b1210;
 }
 
+a.package-count-link {
+  color: #6b1210;
+}
+
 a.top-menu-link,
 a.top-menu-link:hover {
   color: #6b1210;
