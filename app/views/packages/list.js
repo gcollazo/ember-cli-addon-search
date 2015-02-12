@@ -19,9 +19,9 @@ export default Ember.View.extend({
         searchNotFocused = !searchField.is(':focus');
 
     if (searchNotFocused && key === 37) {
-      this.get('controller').send('pressLeft');
+      this.get('controller').send('previousPage');
     } else if (searchNotFocused && key === 39) {
-      this.get('controller').send('pressRight');
+      this.get('controller').send('nextPage');
     }
   }
 });
