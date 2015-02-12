@@ -59,6 +59,18 @@ export default Ember.Controller.extend({
     previousPage: function() {
       var limit = this.get('limit');
       this.decrementProperty('offset', limit);
+    },
+
+    pressLeft: function() {
+      if (this.get('hasPreviousPage')) {
+        this.send('previousPage');
+      }
+    },
+
+    pressRight: function() {
+      if (this.get('hasNextPage')) {
+        this.send('nextPage');
+      }
     }
   }
 });
