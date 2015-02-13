@@ -16,11 +16,12 @@ export default Ember.View.extend({
 
   onGlobalKeyUp: function(event, searchField) {
     var key = event.keyCode,
-        searchNotFocused = !searchField.is(':focus');
+        searchFieldNotFocused = !searchField.is(':focus');
 
-    if (searchNotFocused && key === 37) {
+    if (searchFieldNotFocused && key === 37) {
       this.get('controller').send('previousPage');
-    } else if (searchNotFocused && key === 39) {
+
+    } else if (searchFieldNotFocused && key === 39) {
       this.get('controller').send('nextPage');
     }
   }
