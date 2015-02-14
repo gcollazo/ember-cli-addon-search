@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+var SROLL_TO_POSITION = 250;
+
 export default Ember.Controller.extend({
   queryParams: ['query'],
 
@@ -55,6 +57,7 @@ export default Ember.Controller.extend({
       if (this.get('hasNextPage')) {
         var limit = this.get('limit');
         this.incrementProperty('offset', limit);
+        window.scrollTo(0, SROLL_TO_POSITION);
       }
     },
 
@@ -62,6 +65,7 @@ export default Ember.Controller.extend({
       if (this.get('hasPreviousPage')) {
         var limit = this.get('limit');
         this.decrementProperty('offset', limit);
+        window.scrollTo(0, SROLL_TO_POSITION);
       }
     }
   }
