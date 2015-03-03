@@ -3,9 +3,9 @@ import Ember from 'ember';
 var SROLL_TO_POSITION = 250;
 
 export default Ember.Controller.extend({
-  queryParams: ['query'],
+  queryParams: ['query','page'],
 
-  offset: 0,
+  page: 1,
   limit: 12,
 
   foundCount: 0,
@@ -13,12 +13,8 @@ export default Ember.Controller.extend({
   nextDisabled: Ember.computed.not('hasNextPage'),
   previousDisabled: Ember.computed.not('hasPreviousPage'),
 
-  onQueryChange: function() {
-    this.set('offset', 0);
-  }.observes('query'),
-
   currentPageContent: function() {
-    var offset = this.get('offset'),
+    var page = this.get('page'),
         limit = this.get('limit'),
         query = this.get('query');
 
@@ -31,22 +27,26 @@ export default Ember.Controller.extend({
 
     this.set('foundCount', result.length);
 
-    return result.slice(offset, offset + limit);
-  }.property('offset', 'model', 'query').readOnly(),
+    return result.slice((page - 1) * limit, page * limit);
+  }.property('page', 'model', 'query').readOnly(),
 
   hasPreviousPage: function() {
-    return this.get('offset') !== 0;
-  }.property('offset').readOnly(),
+    return this.get('page') !== 1;
+  }.property('page').readOnly(),
 
   hasNextPage: function() {
-    var offset = this.get('offset'),
+    var page = this.get('page'),
         limit = this.get('limit'),
         length = this.get('foundCount');
 
-    return (offset + limit) < length;
-  }.property('offset', 'limit', 'foundCount').readOnly(),
+    return (page * limit) < length;
+  }.property('page', 'limit', 'foundCount').readOnly(),
 
   actions: {
+    resetPage: function() {
+      this.set('page', 1);
+    },
+
     sortBy: function(by, reverse) {
       var sorted =  this.get('model').sortBy(by);
       if (reverse) { sorted.reverse(); }
@@ -56,7 +56,7 @@ export default Ember.Controller.extend({
     nextPage: function() {
       if (this.get('hasNextPage')) {
         var limit = this.get('limit');
-        this.incrementProperty('offset', limit);
+        this.incrementProperty('page', 1);
         window.scrollTo(0, SROLL_TO_POSITION);
       }
     },
@@ -64,7 +64,7 @@ export default Ember.Controller.extend({
     previousPage: function() {
       if (this.get('hasPreviousPage')) {
         var limit = this.get('limit');
-        this.decrementProperty('offset', limit);
+        this.decrementProperty('page', 1);
         window.scrollTo(0, SROLL_TO_POSITION);
       }
     }
