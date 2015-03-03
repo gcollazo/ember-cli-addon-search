@@ -55,16 +55,14 @@ export default Ember.Controller.extend({
 
     nextPage: function() {
       if (this.get('hasNextPage')) {
-        var limit = this.get('limit');
-        this.incrementProperty('page', 1);
+        this.incrementProperty('page');
         window.scrollTo(0, SROLL_TO_POSITION);
       }
     },
 
     previousPage: function() {
       if (this.get('hasPreviousPage')) {
-        var limit = this.get('limit');
-        this.decrementProperty('page', 1);
+        this.decrementProperty('page');
         window.scrollTo(0, SROLL_TO_POSITION);
       }
     }
