@@ -5,6 +5,7 @@ var SROLL_TO_POSITION = 250;
 export default Ember.Controller.extend({
   queryParams: ['query','page'],
 
+  query: '',
   page: 1,
   limit: 12,
 
