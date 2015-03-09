@@ -8,7 +8,10 @@
   </div>
 </td>
 <td class="cell-gravatar hidden-xs">
-  {{em-avatar user=pkg._npmUser}}
+  <a href="{{unbound npmAuthorURL}}" target="_blank">
+    <img src="{{unbound gravatar}}" class="gravatar">
+    {{unbound user.name}}
+  </a>
 </td>
 <td class="cell-downloads hidden-xs">
   {{unbound digit-grouping downloads}}
