@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
   limit: 12,
 
   foundCount: 0,
-  nothingFound: Ember.computed.equal('foundCount', 0),
   nextDisabled: Ember.computed.not('hasNextPage'),
   previousDisabled: Ember.computed.not('hasPreviousPage'),
 
