@@ -43,7 +43,7 @@
         </thead>
         <tbody>
           {{#each currentPageContent as |pkg|}}
-            {{em-pkg pkg=pkg query=query}}
+            {{em-pkg pkg=pkg}}
           {{/each}}
           {{#if nothingFound}}
             <td colspan="4">
