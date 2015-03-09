@@ -20,6 +20,10 @@ export default Ember.Component.extend({
 
   npmAuthorURL: function() {
     return npmBaseURL + '~' + this.get('user.name');
-  }.property('user.name').readOnly()
+  }.property('user.name').readOnly(),
+
+  isNew: function () {
+    return moment().diff(this.get('pkg.time.created'), 'days') <= 7;
+  }.property('pkg.time.created')
 
 });

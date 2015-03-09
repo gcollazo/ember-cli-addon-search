@@ -2,7 +2,9 @@
   <a href="{{unbound npmPackageURL}}"
      target="_blank"
      class="package-link">{{unbound split-prefix pkg.name}}</a>
-  {{em-is-new createdDate=pkg.time.created}}
+  {{#if isNew}}
+    <div class="new-package">NEW</div>
+  {{/if}}
   <div class="description">
     {{unbound pkg.description}}
   </div>
