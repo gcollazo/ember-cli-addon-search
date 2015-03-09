@@ -1,10 +1,10 @@
 <td class="cell-name">
   <a href="{{unbound npmPackageURL}}"
      target="_blank"
-     class="package-link">{{unbound split-prefix name}}</a>
-  {{em-is-new createdDate=created}}
+     class="package-link">{{unbound split-prefix pkg.name}}</a>
+  {{em-is-new createdDate=pkg.time.created}}
   <div class="description">
-    {{unbound description}}
+    {{unbound pkg.description}}
   </div>
 </td>
 <td class="cell-gravatar hidden-xs">

@@ -6,8 +6,6 @@ export default Ember.Component.extend({
   tagName: 'tr',
   classNames: ['package'],
 
-  name: Ember.computed.readOnly('pkg.name'),
-  description: Ember.computed.readOnly('pkg.description'),
   downloads: Ember.computed.readOnly('pkg.downloads.downloads'),
   updated: Ember.computed.readOnly('pkg.time.modified'),
 
@@ -17,8 +15,8 @@ export default Ember.Component.extend({
   }.property('user.gravatar').readOnly(),
 
   npmPackageURL: function() {
-    return npmBaseURL + this.get('name');
-  }.property('name').readOnly(),
+    return npmBaseURL + this.get('pkg.name');
+  }.property('pkg.name').readOnly(),
 
   npmAuthorURL: function() {
     return npmBaseURL + '~' + this.get('user.name');
