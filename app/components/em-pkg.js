@@ -10,6 +10,6 @@ export default Ember.Component.extend({
 
   isNew: function () {
     return moment().diff(this.get('pkg.time.created'), 'days') <= 7;
-  }.property('pkg.time.created')
+  }.property('pkg.time.created').readOnly()
 
 });
