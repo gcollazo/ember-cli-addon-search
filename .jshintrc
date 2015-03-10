@@ -1,6 +1,5 @@
 {
   "predef": [
-    "moment",
     "document",
     "window",
     "-Promise"

@@ -2,7 +2,6 @@
   "predef": [
     "document",
     "window",
-    "moment",
     "location",
     "setTimeout",
     "$",
