@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import computedFilterByQuery from 'ember-cli-filter-by-query';
 
 var SROLL_TO_POSITION = 250;
 
@@ -12,6 +13,7 @@ export default Ember.Controller.extend({
   foundCount: 0,
   nextDisabled: Ember.computed.not('hasNextPage'),
   previousDisabled: Ember.computed.not('hasPreviousPage'),
+  filteredPackages: computedFilterByQuery('model', ['name','_npmUser.name','description'], 'query', { conjunction: 'and' }),
 
   currentPageContent: function() {
     var page = this.get('page'),

@@ -13,6 +13,7 @@
     "ember-qunit-notifications": "0.0.5",
     "qunit": "~1.17.1",
     "bootstrap": "~3.3.2",
-    "ember-cli-moment-shim": "~0.0.3"
+    "ember-cli-moment-shim": "~0.0.3",
+    "sifter": "~0.4.1"
   }
 }
