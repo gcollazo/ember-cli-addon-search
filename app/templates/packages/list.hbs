@@ -19,25 +19,17 @@
       <table class="table table-packages">
         <thead>
           <tr>
-            <th>
-              {{#em-sort-button sort="sortBy" by="name"}}
-                NAME
-              {{/em-sort-button}}
+            <th {{action 'sortBy' 'name'}}>
+              NAME
             </th>
-            <th class="hidden-xs">
-              {{#em-sort-button sort="sortBy" by="_npmUser.name"}}
-                OWNER
-              {{/em-sort-button}}
+            <th {{action 'sortBy' '_npmUser.name'}}>
+              OWNER
             </th>
-            <th class="hidden-xs">
-              {{#em-sort-button sort="sortBy" by="downloads.downloads"}}
-                DOWNLOADS
-              {{/em-sort-button}}
+            <th {{action 'sortBy' 'downloads.downloads'}}>
+              DOWNLOADS
             </th>
-            <th class="hidden-xs">
-              {{#em-sort-button sort="sortBy" by="time.modified"}}
-                UPDATED
-              {{/em-sort-button}}
+            <th {{action 'sortBy' 'time.modified'}}>
+              UPDATED
             </th>
           </tr>
         </thead>
