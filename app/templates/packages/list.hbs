@@ -43,13 +43,12 @@
         </thead>
         <tbody>
           {{#each currentPageContent as |pkg|}}
-            {{em-pkg pkg=pkg query=query}}
-          {{/each}}
-          {{#if nothingFound}}
+            {{em-pkg pkg=pkg}}
+          {{else}}
             <td colspan="4">
               <p class="not-found">Nothing found for "{{query}}"</p>
             </td>
-          {{/if}}
+          {{/each}}
           <tr class="pagination-row">
             <td colspan="4" class="pagination-cell">
               <button
