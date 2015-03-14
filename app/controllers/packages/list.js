@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import computedFilterByQuery from 'ember-cli-filter-by-query';
 
 var SROLL_TO_POSITION = 250;
 
@@ -9,26 +10,29 @@ export default Ember.Controller.extend({
   page: 1,
   limit: 12,
 
-  foundCount: 0,
-  nextDisabled: Ember.computed.not('hasNextPage'),
-  previousDisabled: Ember.computed.not('hasPreviousPage'),
+  filteredPackages: computedFilterByQuery('model',
+    ['name','_npmUser.name','description'], 'query', { conjunction: 'and' }
+  ).readOnly(),
+
+  sortAscending: true,
+  sortProperty: 'time.modified',
+  sortedPackages: Ember.computed(function() {
+    var sorted = this.get('filteredPackages').sortBy(this.get('sortProperty'));
+    if (this.get('sortAscending')) { sorted.reverse(); }
+
+    return sorted;
+  }).property('filteredPackages', 'sortProperty', 'sortAscending').readOnly(),
 
   currentPageContent: function() {
     var page = this.get('page'),
-        limit = this.get('limit'),
-        query = this.get('query');
+        limit = this.get('limit');
 
-    var result = this.get('model').filter(function(item) {
-      return !query ||
-        item.name.toLowerCase().indexOf(query.toLowerCase()) >= 0 ||
-        item._npmUser.name.toLowerCase().indexOf(query.toLowerCase()) >= 0 ||
-        item.description.toLowerCase().indexOf(query.toLowerCase()) >= 0;
-    });
+    return this.get('sortedPackages').slice((page - 1) * limit, page * limit);
+  }.property('page', 'sortedPackages', 'query').readOnly(),
 
-    this.set('foundCount', result.length);
-
-    return result.slice((page - 1) * limit, page * limit);
-  }.property('page', 'model', 'query').readOnly(),
+  nothingFound: Ember.computed.equal('sortedPackages.length', 0),
+  nextDisabled: Ember.computed.not('hasNextPage'),
+  previousDisabled: Ember.computed.not('hasPreviousPage'),
 
   hasPreviousPage: function() {
     return this.get('page') !== 1;
@@ -37,20 +41,21 @@ export default Ember.Controller.extend({
   hasNextPage: function() {
     var page = this.get('page'),
         limit = this.get('limit'),
-        length = this.get('foundCount');
+        length = this.get('sortedPackages.length');
 
     return (page * limit) < length;
-  }.property('page', 'limit', 'foundCount').readOnly(),
+  }.property('page', 'limit', 'sortedPackages.length').readOnly(),
 
   actions: {
     resetPage: function() {
       this.set('page', 1);
     },
 
-    sortBy: function(by, reverse) {
-      var sorted =  this.get('model').sortBy(by);
-      if (reverse) { sorted.reverse(); }
-      this.set('model', sorted);
+    sortBy: function(propertyKey) {
+      if (propertyKey === this.get('sortProperty')) {
+        this.toggleProperty('sortAscending');
+      }
+      this.set('sortProperty', propertyKey);
     },
 
     nextPage: function() {
