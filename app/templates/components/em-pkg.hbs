@@ -5,9 +5,11 @@
   {{#if isNew}}
     <div class="new-package">NEW</div>
   {{/if}}
-  <div class="description">
-    {{unbound pkg.description}}
-  </div>
+  {{#if hasDescription}}
+    <div class="description">
+      {{unbound pkg.description}}
+    </div>
+  {{/if}}
 </td>
 <td class="cell-gravatar hidden-xs">
   <a href="https://npmjs.org/~{{unbound user.name}}" target="_blank">
