@@ -10,6 +10,10 @@ export default Ember.Component.extend({
 
   isNew: function () {
     return moment().diff(this.get('pkg.time.created'), 'days') <= 7;
-  }.property('pkg.time.created').readOnly()
+  }.property('pkg.time.created').readOnly(),
+
+  hasDescription: function() {
+    return this.get('pkg.description') !== 'The default blueprint for ember-cli addons.';
+  }.property('pkg.description').readOnly()
 
 });
