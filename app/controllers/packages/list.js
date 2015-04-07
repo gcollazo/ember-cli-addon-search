@@ -16,12 +16,13 @@ export default Ember.Controller.extend({
 
   sortAscending: true,
   sortProperty: 'time.modified',
-  sortedPackages: Ember.computed(function() {
+
+  sortedPackages: function() {
     var sorted = this.get('filteredPackages').sortBy(this.get('sortProperty'));
     if (this.get('sortAscending')) { sorted.reverse(); }
 
     return sorted;
-  }).property('filteredPackages', 'sortProperty', 'sortAscending').readOnly(),
+  }.property('filteredPackages', 'sortProperty', 'sortAscending').readOnly(),
 
   currentPageContent: function() {
     var page = this.get('page'),
