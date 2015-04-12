@@ -199,7 +199,8 @@ a.sort-button {
   border-radius: 3px;
 }
 
-.score--s {
+.score--s,
+.score--WIP {
   background-color: #ACACAC;
 }
 

@@ -1,11 +1,19 @@
-{{#if score}}
+{{#if isWIP}}
   <a href="http://emberobserver.com/addons/{{unbound name}}" target="_blank">
-    <div class="score score--s{{unbound score}}">
-      {{unbound score}}
+    <div class="score score--WIP" title="{{unbound note}}">
+      WIP
     </div>
   </a>
 {{else}}
-  <div class="score score--s" title="Not found in Ember Observer">
-    -
-  </div>
+  {{#if score}}
+    <a href="http://emberobserver.com/addons/{{unbound name}}" target="_blank">
+      <div class="score score--s{{unbound score}}" title="Scored [{{unbound score}}] on Ember Observer">
+        {{unbound score}}
+      </div>
+    </a>
+  {{else}}
+    <div class="score score--s" title="Not found in Ember Observer">
+      -
+    </div>
+  {{/if}}
 {{/if}}

@@ -18,7 +18,11 @@
   </a>
 </td>
 <td class="cell-downloads hidden-xs">
-  {{observer-score score=pkg.emberObserverScore name=pkg.name}}
+  {{observer-score
+    score=pkg.emberObserver.score
+    isWIP=pkg.emberObserver.isWIP
+    note=pkg.emberObserver.note
+    name=pkg.name}}
 </td>
 <td class="cell-updated hidden-xs">
   {{unbound ago pkg.time.modified}}
