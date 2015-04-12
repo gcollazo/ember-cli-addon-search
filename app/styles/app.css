@@ -189,6 +189,59 @@ a.sort-button {
   border: 2px solid #d9d9d9;
 }
 
+.score {
+  display: inline-block;
+  color: white;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.score--s {
+  background-color: #ACACAC;
+}
+
+.score--s1 {
+  background-color: #E12728;
+}
+
+.score--s2 {
+  background-color: #E12728;
+}
+
+.score--s3 {
+  background-color: #EE9428;
+}
+
+.score--s4 {
+  background-color: #EE9428;
+}
+
+.score--s5 {
+  background-color: #F7C428;
+}
+
+.score--s6 {
+  background-color: #F7C428;
+}
+
+.score--s7 {
+  background-color: #A1D916;
+}
+
+.score--s8 {
+  background-color: #A1D916;
+}
+
+.score--s9 {
+  background-color: #66DD1D;
+}
+
+.score--s10 {
+  background-color: #3C820A;
+}
 
 
 /* xs */

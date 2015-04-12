@@ -1,0 +1,11 @@
+{{#if score}}
+  <a href="http://emberobserver.com/addons/{{unbound name}}" target="_blank">
+    <div class="score score--s{{unbound score}}">
+      {{unbound score}}
+    </div>
+  </a>
+{{else}}
+  <div class="score score--s" title="Not found in Ember Observer">
+    -
+  </div>
+{{/if}}
