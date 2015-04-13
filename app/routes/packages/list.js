@@ -9,7 +9,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    var url = 'https://io-builtwithember-addons-data.s3.amazonaws.com/addons-dev.json';
+    var url = 'https://io-builtwithember-addons-data.s3.amazonaws.com/addons.json';
     return ajax(url).then(function(result) {
       return result.sortBy('time.modified').reverse();
     });
