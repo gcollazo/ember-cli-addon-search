@@ -48,6 +48,10 @@ a span.name-prefix {
   font-size: 50px;
 }
 
+.branding a {
+  color: white;
+}
+
 .header-subtitle {
   color: #6b1210;
 }
