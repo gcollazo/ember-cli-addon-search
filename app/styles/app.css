@@ -48,6 +48,16 @@ a span.name-prefix {
   font-size: 50px;
 }
 
+.branding a {
+  color: white;
+}
+
+.branding a:hover,
+.branding a:active,
+.branding a:focus {
+  text-decoration: none;
+}
+
 .header-subtitle {
   color: #6b1210;
 }
