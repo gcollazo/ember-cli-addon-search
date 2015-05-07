@@ -9,11 +9,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    var packages = this.get('store').find('package');
-
-    return packages.then(function(result) {
-      return result.sortBy('time.modified').reverse();
-    });
+    return this.get('store').find('package');
   },
 
   setupController: function (controller, model) {
