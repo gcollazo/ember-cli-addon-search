@@ -8,7 +8,7 @@ export default DS.RESTSerializer.extend({
       return p;
     });
 
-    payload = {packages: packages};
+    payload = { packages: packages };
 
     return this._super(store, type, payload);
   }
