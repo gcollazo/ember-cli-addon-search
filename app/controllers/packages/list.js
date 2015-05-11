@@ -17,37 +17,36 @@ export default Ember.Controller.extend({
   sortAscending: true,
   sortProperty: 'time.modified',
 
-  sortedPackages: function() {
+  sortedPackages: Ember.computed('filteredPackages', 'sortProperty', 'sortAscending', function() {
     var sorted = this.get('filteredPackages').sortBy(this.get('sortProperty'));
     if (this.get('sortAscending')) {
       sorted.reverse();
     }
-
     return sorted;
-  }.property('filteredPackages', 'sortProperty', 'sortAscending').readOnly(),
+  }).readOnly(),
 
-  currentPageContent: function() {
+  currentPageContent: Ember.computed('page', 'sortedPackages', 'query', function() {
     var page = this.get('page');
     var limit = this.get('limit');
 
     return this.get('sortedPackages').slice((page - 1) * limit, page * limit);
-  }.property('page', 'sortedPackages', 'query').readOnly(),
+  }).readOnly(),
 
   nothingFound: Ember.computed.equal('sortedPackages.length', 0),
   nextDisabled: Ember.computed.not('hasNextPage'),
   previousDisabled: Ember.computed.not('hasPreviousPage'),
 
-  hasPreviousPage: function() {
+  hasPreviousPage: Ember.computed('page', function() {
     return this.get('page') !== 1;
-  }.property('page').readOnly(),
+  }).readOnly(),
 
-  hasNextPage: function() {
+  hasNextPage: Ember.computed('page', 'limit', 'sortedPackages.length', function() {
     var page = this.get('page');
     var limit = this.get('limit');
     var length = this.get('sortedPackages.length');
 
     return (page * limit) < length;
-  }.property('page', 'limit', 'sortedPackages.length').readOnly(),
+  }).readOnly(),
 
   actions: {
     resetPage: function() {
