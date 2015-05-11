@@ -4,14 +4,14 @@ import computedFilterByQuery from 'ember-cli-filter-by-query';
 var SROLL_TO_POSITION = 250;
 
 export default Ember.Controller.extend({
-  queryParams: ['query','page'],
+  queryParams: ['query', 'page'],
 
   query: '',
   page: 1,
   limit: 12,
 
   filteredPackages: computedFilterByQuery('model.content',
-    ['name','_npmUser.name','description'], 'query', { conjunction: 'and' }
+    ['name', '_npmUser.name', 'description'], 'query', { conjunction: 'and' }
   ).readOnly(),
 
   sortAscending: true,
@@ -19,14 +19,16 @@ export default Ember.Controller.extend({
 
   sortedPackages: function() {
     var sorted = this.get('filteredPackages').sortBy(this.get('sortProperty'));
-    if (this.get('sortAscending')) { sorted.reverse(); }
+    if (this.get('sortAscending')) {
+      sorted.reverse();
+    }
 
     return sorted;
   }.property('filteredPackages', 'sortProperty', 'sortAscending').readOnly(),
 
   currentPageContent: function() {
-    var page = this.get('page'),
-        limit = this.get('limit');
+    var page = this.get('page');
+    var limit = this.get('limit');
 
     return this.get('sortedPackages').slice((page - 1) * limit, page * limit);
   }.property('page', 'sortedPackages', 'query').readOnly(),
@@ -40,9 +42,9 @@ export default Ember.Controller.extend({
   }.property('page').readOnly(),
 
   hasNextPage: function() {
-    var page = this.get('page'),
-        limit = this.get('limit'),
-        length = this.get('sortedPackages.length');
+    var page = this.get('page');
+    var limit = this.get('limit');
+    var length = this.get('sortedPackages.length');
 
     return (page * limit) < length;
   }.property('page', 'limit', 'sortedPackages.length').readOnly(),
