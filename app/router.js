@@ -5,8 +5,8 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-export default Router.map(function () {
-  this.resource('packages', { path: '/' }, function () {
+export default Router.map(function() {
+  this.resource('packages', { path: '/' }, function() {
     this.route('list', { path: '/' });
   });
 });

@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
   didInsertElement: function() {
-    var view = this,
-        searchField = Ember.$('.search-field');
+    var view = this;
+    var searchField = Ember.$('.search-field');
 
     Ember.$(document).on('keyup', function(event) {
       view.onGlobalKeyUp(event, searchField);
@@ -15,8 +15,8 @@ export default Ember.View.extend({
   },
 
   onGlobalKeyUp: function(event, searchField) {
-    var key = event.keyCode,
-        searchFieldNotFocused = !searchField.is(':focus');
+    var key = event.keyCode;
+    var searchFieldNotFocused = !searchField.is(':focus');
 
     if (searchFieldNotFocused && key === 37) {
       this.get('controller').send('previousPage');
