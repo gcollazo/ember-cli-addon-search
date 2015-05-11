@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
   page: 1,
   limit: 12,
 
-  filteredPackages: computedFilterByQuery('model',
+  filteredPackages: computedFilterByQuery('model.content',
     ['name','_npmUser.name','description'], 'query', { conjunction: 'and' }
   ).readOnly(),
 

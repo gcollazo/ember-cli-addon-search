@@ -2,6 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
+    host: "https://io-builtwithember-addons-data.s3.amazonaws.com",
     modulePrefix: 'ember-addons-website',
     environment: environment,
     baseURL: '/',
