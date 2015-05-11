@@ -8,12 +8,12 @@ export default Ember.Component.extend({
   downloads: Ember.computed.readOnly('pkg.downloads.downloads'),
   user: Ember.computed.readOnly('pkg._npmUser'),
 
-  isNew: function () {
+  isNew: Ember.computed.readOnly('pkg.time.created', function() {
     return moment().diff(this.get('pkg.time.created'), 'days') <= 7;
-  }.property('pkg.time.created').readOnly(),
+  }),
 
-  hasDescription: function() {
+  hasDescription: Ember.computed.readOnly('pkg.description', function() {
     return this.get('pkg.description') !== 'The default blueprint for ember-cli addons.';
-  }.property('pkg.description').readOnly()
+  })
 
 });
