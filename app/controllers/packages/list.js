@@ -33,8 +33,6 @@ export default Ember.Controller.extend({
   }).readOnly(),
 
   nothingFound: Ember.computed.equal('sortedPackages.length', 0),
-  nextDisabled: Ember.computed.not('hasNextPage'),
-  previousDisabled: Ember.computed.not('hasPreviousPage'),
 
   hasPreviousPage: Ember.computed('page', function() {
     return this.get('page') !== 1;
