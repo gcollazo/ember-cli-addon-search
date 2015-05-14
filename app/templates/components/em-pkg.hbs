@@ -1,20 +1,20 @@
 <td class="cell-name">
-  <a href="https://www.npmjs.com/{{unbound pkg.name}}"
+  <a href="https://www.npmjs.com/{{pkg.name}}"
      target="_blank"
-     class="package-link">{{unbound split-prefix pkg.name}}</a>
+     class="package-link">{{split-prefix pkg.name}}</a>
   {{#if isNew}}
     <div class="new-package">NEW</div>
   {{/if}}
   {{#if hasDescription}}
     <div class="description">
-      {{unbound pkg.description}}
+      {{pkg.description}}
     </div>
   {{/if}}
 </td>
 <td class="cell-gravatar hidden-xs">
-  <a href="https://www.npmjs.com/~{{unbound user.name}}" target="_blank">
-    <img src="{{unbound user.gravatar}}?s=30&d=retro" class="gravatar">
-    {{unbound user.name}}
+  <a href="https://www.npmjs.com/~{{user.name}}" target="_blank">
+    <img src="{{user.gravatar}}?s=30&d=retro" class="gravatar">
+    {{user.name}}
   </a>
 </td>
 <td class="cell-downloads hidden-xs">
@@ -25,5 +25,5 @@
     name=pkg.name}}
 </td>
 <td class="cell-updated hidden-xs">
-  {{unbound ago pkg.time.modified}}
+  {{ago pkg.time.modified}}
 </td>
