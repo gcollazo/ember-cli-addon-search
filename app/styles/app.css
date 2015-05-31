@@ -145,6 +145,24 @@ a.sort-button {
   top: -4px;
 }
 
+.demo-link {
+  display:inline-block;
+  color: #ea3723;
+  border: 1px solid #ea3723;
+  font-size: 11px;
+  padding:1px 4px;
+}
+
+.demo-link:hover {
+  text-decoration: none;
+  background-color: #ea3723;
+  color: white;
+}
+
+.demo-link:focus {
+  text-decoration: none;
+}
+
 .list-package-details {
   font-size: 11px;
 }
