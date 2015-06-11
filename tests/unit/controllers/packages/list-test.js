@@ -1,15 +1,12 @@
-import {
-  moduleFor,
-  test
-} from 'ember-qunit';
+import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:index', 'IndexController', {
+moduleFor('controller:packages/list', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });
 
 // Replace this with your real tests.
-test('it exists', function() {
+test('it exists', function(assert) {
   var controller = this.subject();
-  ok(controller);
+  assert.ok(controller);
 });
