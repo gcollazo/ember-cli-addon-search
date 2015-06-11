@@ -1,0 +1,12 @@
+{
+    "name": "Ember Addons",
+    "description": "Listing hundreds of modules that extend ember-cli.",
+    "website": "http://www.emberaddons.com/",
+    "repository": "https://github.com/gcollazo/ember-cli-addon-search/",
+    "logo": "http://emberjs.com/images/logos/ember-logo.png",
+    "keywords": ["ember", "ember.js", "ember-cli"],
+    "env": {
+        "BUILDPACK_URL": "https://github.com/tonycoco/heroku-buildpack-ember-cli.git",
+        "NGINX_WORKERS": "4"
+    }
+}
