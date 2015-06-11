@@ -51,15 +51,9 @@
           {{/each}}
           <tr class="pagination-row">
             <td colspan="4" class="pagination-cell">
-              <button
-                {{bind-attr class=":pagination-link hasPreviousPage:enabled:disabled"
-                disabled="previousDisabled"}}
-                {{action 'previousPage'}}>Previous</button>
+              <a class="btn pagination-link {{if hasPreviousPage 'enabled' 'disabled'}}" {{action 'previousPage'}}>Previous</a>
 
-              <button
-                {{bind-attr class=":pagination-link hasNextPage:enabled:disabled"
-                disabled="nextDisabled"}}
-                {{action 'nextPage'}}>Next</button>
+              <a class="btn pagination-link {{if hasNextPage 'enabled' 'disabled'}}" {{action 'nextPage'}}>Next</a>
             </td>
           </tr>
         </tbody>

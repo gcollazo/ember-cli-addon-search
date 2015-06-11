@@ -1,9 +1,6 @@
-import {
-  moduleFor,
-  test
-} from 'ember-qunit';
+import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('view:packages/list');
+moduleFor('view:packages/list', 'Unit | View | packages/list');
 
 // Replace this with your real tests.
 test('it exists', function(assert) {
