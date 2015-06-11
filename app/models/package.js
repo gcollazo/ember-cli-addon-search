@@ -2,12 +2,13 @@ import DS from 'ember-data';
 var attr = DS.attr;
 
 export default DS.Model.extend({
-  name: attr('string'),
-  description: attr('string'),
-  time: attr(),
-  author: attr(),
-  github: attr(),
   _npmUser: attr(),
+  author: attr(),
+  demoURL: attr('string'),
+  description: attr('string'),
   downloads: attr(),
-  emberObserver: attr()
+  emberObserver: attr(),
+  github: attr(),
+  name: attr('string'),
+  time: attr()
 });

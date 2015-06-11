@@ -10,6 +10,11 @@
       {{pkg.description}}
     </div>
   {{/if}}
+  {{#if pkg.demoURL}}
+    <div>
+      <a class="demo-link" href="{{unbound pkg.demoURL}}" target="_blank">DEMO</a>
+    </div>
+  {{/if}}
 </td>
 <td class="cell-gravatar hidden-xs">
   <a href="https://www.npmjs.com/~{{user.name}}" target="_blank">
