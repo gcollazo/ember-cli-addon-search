@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import computedFilterByQuery from '../../utils/filter-by-query';
 
-var SROLL_TO_POSITION = 250;
+var SCROLL_TO_POSITION = 250;
 
 export default Ember.Controller.extend({
   queryParams: ['query', 'page'],
@@ -62,14 +62,14 @@ export default Ember.Controller.extend({
     nextPage: function() {
       if (this.get('hasNextPage')) {
         this.incrementProperty('page');
-        window.scrollTo(0, SROLL_TO_POSITION);
+        window.scrollTo(0, SCROLL_TO_POSITION);
       }
     },
 
     previousPage: function() {
       if (this.get('hasPreviousPage')) {
         this.decrementProperty('page');
-        window.scrollTo(0, SROLL_TO_POSITION);
+        window.scrollTo(0, SCROLL_TO_POSITION);
       }
     }
   }
