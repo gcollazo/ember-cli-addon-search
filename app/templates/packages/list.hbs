@@ -42,7 +42,7 @@
           </tr>
         </thead>
         <tbody>
-          {{#each currentPageContent as |pkg|}}
+          {{#each currentPageContent key="id" as |pkg|}}
             {{em-pkg pkg=pkg}}
           {{else}}
             <td colspan="4">
