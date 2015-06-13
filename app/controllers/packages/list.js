@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import computedFilterByQuery from 'ember-cli-filter-by-query';
+import computedFilterByQuery from '../../utils/filter-by-query';
 
 var SROLL_TO_POSITION = 250;
 
@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
   page: 1,
   limit: 12,
 
-  filteredPackages: computedFilterByQuery('model.content',
+  filteredPackages: computedFilterByQuery('model',
     ['name', '_npmUser.name', 'description'], 'query', { conjunction: 'and' }
   ).readOnly(),
 
@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
 
   sortedPackages: Ember.computed('filteredPackages', 'sortProperty', 'sortAscending', function() {
     var sorted = this.get('filteredPackages').sortBy(this.get('sortProperty'));
+
     if (this.get('sortAscending')) {
       sorted.reverse();
     }
