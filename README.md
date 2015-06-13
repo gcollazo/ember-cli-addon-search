@@ -1,4 +1,4 @@
-# www.emberaddons.com
+# Ember Addons Website [![Build Status](https://travis-ci.org/gcollazo/ember-cli-addon-search.svg?branch=master)](https://travis-ci.org/gcollazo/ember-cli-addon-search)
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
