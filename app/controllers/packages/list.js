@@ -35,18 +35,6 @@ export default Ember.Controller.extend({
 
   nothingFound: Ember.computed.equal('sortedPackages.length', 0),
 
-  hasPreviousPage: Ember.computed('page', function() {
-    return this.get('page') !== 1;
-  }).readOnly(),
-
-  hasNextPage: Ember.computed('page', 'limit', 'sortedPackages.length', function() {
-    var page = this.get('page');
-    var limit = this.get('limit');
-    var length = this.get('sortedPackages.length');
-
-    return (page * limit) < length;
-  }).readOnly(),
-
   actions: {
     resetPage: function() {
       this.set('page', 1);
@@ -60,17 +48,13 @@ export default Ember.Controller.extend({
     },
 
     nextPage: function() {
-      if (this.get('hasNextPage')) {
-        this.incrementProperty('page');
-        window.scrollTo(0, SCROLL_TO_POSITION);
-      }
+      this.incrementProperty('page');
+      window.scrollTo(0, SCROLL_TO_POSITION);
     },
 
     previousPage: function() {
-      if (this.get('hasPreviousPage')) {
-        this.decrementProperty('page');
-        window.scrollTo(0, SCROLL_TO_POSITION);
-      }
+      this.decrementProperty('page');
+      window.scrollTo(0, SCROLL_TO_POSITION);
     }
   }
 });
