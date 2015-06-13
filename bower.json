@@ -15,5 +15,8 @@
     "bootstrap": "~3.3.2",
     "ember-cli-moment-shim": "~0.0.3",
     "sifter": "~0.4.1"
+  },
+  "resolutions": {
+    "ember": "2.0.0-beta.1"
   }
 }
