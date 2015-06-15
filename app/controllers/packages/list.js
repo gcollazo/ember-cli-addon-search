@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import computedFilterByQuery from 'ember-cli-filter-by-query';
+import computedFilterByQuery from '../../utils/filter-by-query';
 
-var SROLL_TO_POSITION = 250;
+var SCROLL_TO_POSITION = 250;
 
 export default Ember.Controller.extend({
   queryParams: ['query', 'page'],
@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
   page: 1,
   limit: 12,
 
-  filteredPackages: computedFilterByQuery('model.content',
+  filteredPackages: computedFilterByQuery('model',
     ['name', '_npmUser.name', 'description'], 'query', { conjunction: 'and' }
   ).readOnly(),
 
@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
 
   sortedPackages: Ember.computed('filteredPackages', 'sortProperty', 'sortAscending', function() {
     var sorted = this.get('filteredPackages').sortBy(this.get('sortProperty'));
+
     if (this.get('sortAscending')) {
       sorted.reverse();
     }
@@ -34,18 +35,6 @@ export default Ember.Controller.extend({
 
   nothingFound: Ember.computed.equal('sortedPackages.length', 0),
 
-  hasPreviousPage: Ember.computed('page', function() {
-    return this.get('page') !== 1;
-  }).readOnly(),
-
-  hasNextPage: Ember.computed('page', 'limit', 'sortedPackages.length', function() {
-    var page = this.get('page');
-    var limit = this.get('limit');
-    var length = this.get('sortedPackages.length');
-
-    return (page * limit) < length;
-  }).readOnly(),
-
   actions: {
     resetPage: function() {
       this.set('page', 1);
@@ -59,17 +48,13 @@ export default Ember.Controller.extend({
     },
 
     nextPage: function() {
-      if (this.get('hasNextPage')) {
-        this.incrementProperty('page');
-        window.scrollTo(0, SROLL_TO_POSITION);
-      }
+      this.incrementProperty('page');
+      window.scrollTo(0, SCROLL_TO_POSITION);
     },
 
     previousPage: function() {
-      if (this.get('hasPreviousPage')) {
-        this.decrementProperty('page');
-        window.scrollTo(0, SROLL_TO_POSITION);
-      }
+      this.decrementProperty('page');
+      window.scrollTo(0, SCROLL_TO_POSITION);
     }
   }
 });

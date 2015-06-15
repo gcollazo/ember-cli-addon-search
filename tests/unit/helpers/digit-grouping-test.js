@@ -3,8 +3,8 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | digit grouping');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
-  var result = digitGrouping(42);
-  assert.ok(result);
+  var result = digitGrouping(1234567);
+
+  assert.equal(result, '1,234,567');
 });
