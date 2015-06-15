@@ -10,7 +10,7 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember try:testall"
+    "test": "ember test"
   },
   "repository": "",
   "engines": {
@@ -32,7 +32,6 @@
     "ember-data": "1.0.0-beta.19.2",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
-    "ember-moment": "^1.0.0",
-    "ember-try": "0.0.4"
+    "ember-moment": "^1.0.0"
   }
 }
