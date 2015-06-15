@@ -19,4 +19,4 @@ export function splitPrefix(value) {
   return new Ember.Handlebars.SafeString('<span class="name-prefix">' + prefix + '</span><span class="name-main">' + name + '</span>');
 }
 
-export default Ember.HTMLBars.makeBoundHelper(splitPrefix);
+export default Ember.Handlebars.makeBoundHelper(splitPrefix);
