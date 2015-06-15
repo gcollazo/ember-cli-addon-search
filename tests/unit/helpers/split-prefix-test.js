@@ -3,8 +3,8 @@ import { module, test } from 'qunit';
 
 module('Unit | Helper | split prefix');
 
-// Replace this with your real tests.
 test('it works', function(assert) {
-  var result = splitPrefix(42);
-  assert.ok(result);
+  var result = splitPrefix('ember-cli-testing');
+
+  assert.equal(result.toString(), '<span class="name-prefix">ember-cli-</span><span class="name-main">testing</span>');
 });

@@ -1,9 +1,16 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import Ember from 'ember';
+import { test, moduleForComponent } from 'ember-qunit';
+import { initialize } from '../../../initializers/ember-moment';
 
 moduleForComponent('em-pkg', 'Unit | Component | em pkg', {
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar'],
-  unit: true
+  needs: ['helper:split-prefix', 'component:observer-score'],
+  unit: true,
+  setup: function (container) {
+    Ember.run(function () {
+      initialize(container);
+    });
+  }
 });
 
 test('it renders', function(assert) {
