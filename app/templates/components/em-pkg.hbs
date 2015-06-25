@@ -21,9 +21,9 @@
   {{/if}}
 </td>
 <td class="cell-clipboard hidden-xs">
-  <div hidden={{hideClipboard}} {{action 'displayInstallCommand'}}>
-    {{partial "clipboard"}}
-  </div>
+  <a href="#" {{action 'toggleDisplayInstallCommand'}} class="cell-clipboard-link">
+    {{em-icon-clipboard color=(if hideInstallCommand '#7f7f7f' '#ea3723')}}
+  </a>
 </td>
 <td class="cell-gravatar hidden-xs">
   <a href="https://www.npmjs.com/~{{user.name}}" target="_blank">

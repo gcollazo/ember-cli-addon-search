@@ -122,23 +122,30 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 75px;
 }
 
-.cell-clipboard div {
+.cell-clipboard-link {
+  display:none;
   padding-top: 10px;
 }
 
-.cell-clipboard svg {
-  cursor: pointer;
+tr.package:hover .cell-clipboard-link {
+  display: inline-block;
 }
 
-.install-command input{
+.install-command-input {
   width: 100%;
   border-radius: 6px;
   height: 40px;
   border-style: none;
   background-color: #F0F0F0;
-  font-size: 25px;
-  padding: 10px;
+  font-size: 19px;
+  padding: 7px;
   outline: 0;
+  font-family: monospace;
+}
+
+.install-command p {
+  margin: 3px 0 0 0;
+  font-size: 11px;
 }
 
 a.sort-button {
