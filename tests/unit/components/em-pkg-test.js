@@ -4,7 +4,11 @@ import { initialize } from '../../../initializers/ember-moment';
 
 moduleForComponent('em-pkg', 'Unit | Component | em pkg', {
   // Specify the other units that are required for this test
-  needs: ['helper:split-prefix', 'component:observer-score'],
+  needs: [
+    'helper:split-prefix',
+    'component:observer-score',
+    'component:em-icon-clipboard'
+  ],
   unit: true,
   setup: function (container) {
     Ember.run(function () {
