@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return this.get('store').find('package');
+    return this.get('store').findAll('package');
   },
 
   setupController: function(controller, model) {
