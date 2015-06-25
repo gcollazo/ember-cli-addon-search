@@ -118,6 +118,29 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 100px;
 }
 
+.cell-clipboard {
+  width: 75px;
+}
+
+.cell-clipboard div {
+  padding-top: 10px;
+}
+
+.cell-clipboard svg {
+  cursor: pointer;
+}
+
+.install-command input{
+  width: 100%;
+  border-radius: 6px;
+  height: 40px;
+  border-style: none;
+  background-color: #F0F0F0;
+  font-size: 25px;
+  padding: 10px;
+  outline: 0;
+}
+
 a.sort-button {
   color: black;
 }
