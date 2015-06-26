@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import computedFilterByQuery from '../../utils/filter-by-query';
 
-var SCROLL_TO_POSITION = 250;
+var SCROLL_TO_POSITION = 200;
 
 export default Ember.Controller.extend({
   queryParams: ['query', 'page'],

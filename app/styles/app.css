@@ -8,7 +8,7 @@ body {
 
 header {
   background-color: #ea3723;
-  padding: 50px 0 0 0;
+  padding: 20px 0 0 0;
 }
 
 a, a:hover, a:active, a:visited {
@@ -21,7 +21,7 @@ a span.name-prefix {
 
 .search-wrapper {
   background-color: #ea3723;
-  padding: 20px 0 30px 0;
+  padding: 20px 0 25px 0;
 }
 
 .container-loading {
@@ -45,7 +45,7 @@ a span.name-prefix {
   color: white;
   font-weight: 100;
   margin:0;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .branding a {
@@ -75,8 +75,8 @@ a.top-menu-link:hover {
 .search-field {
   border-radius: 0;
   border: 0;
-  font-size: 20px;
-  height: 60px;
+  font-size: 18px;
+  height: 50px;
 }
 
 .search-field[disabled=disabled] {
@@ -305,9 +305,6 @@ a.sort-button {
 
 /* xs */
 @media (min-width: 0px) and (max-width: 767px) {
-  .branding {
-    font-size: 47px;
-  }
   .header-subtitle {
     font-size: 14px;
   }
@@ -330,15 +327,3 @@ a.sort-button {
 
 /* lg */
 @media (min-width: 1200px) {}
-
-table.table-packages > thead > tr > th[data-ember-action] {
-  cursor: pointer;
-  white-space: nowrap;
-}
-table.table-packages > tbody > tr.hidden {
-  display: none;
-}
-
-img.-eic-loading, img.-eic-error {
-  display: none;
-}
