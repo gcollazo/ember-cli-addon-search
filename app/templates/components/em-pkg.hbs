@@ -28,7 +28,9 @@
 <td class="cell-github hidden-xs">
   {{#if pkg.github}}
     <a href="https://github.com/{{pkg.github.user}}/{{pkg.github.repo}}" target="_black">
-      {{em-github-repo color="#7f7f7f"}}
+      <div class="github-logo">
+        <img src="assets/github-logo.svg" alt="Github Logo">
+      </div>
     </a>
   {{/if}}
 </td>
