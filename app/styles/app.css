@@ -118,16 +118,27 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 100px;
 }
 
-.cell-clipboard {
-  width: 75px;
+.cell-clipboard, .cell-github {
+  width: 42px;
+  vertical-align: middle !important;
 }
 
-.cell-clipboard-link {
+.clipboard, .github-logo {
   display:none;
-  padding-top: 10px;
 }
 
-tr.package:hover .cell-clipboard-link {
+.clipboard {
+  padding-top: 4px;
+  padding-left: 10px
+}
+
+.github-logo {
+  padding-top: 6px;
+  padding-right: 10px;
+}
+
+tr.package:hover .clipboard,
+tr.package:hover .github-logo {
   display: inline-block;
 }
 
