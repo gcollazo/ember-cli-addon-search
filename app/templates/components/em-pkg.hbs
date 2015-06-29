@@ -25,6 +25,15 @@
     {{em-icon-clipboard color=(if hideInstallCommand '#7f7f7f' '#ea3723')}}
   </a>
 </td>
+<td class="cell-github hidden-xs">
+  {{#if pkg.github}}
+    <a href="https://github.com/{{pkg.github.user}}/{{pkg.github.repo}}" target="_black">
+      <div class="github-logo">
+        <img src="assets/github-logo.svg" alt="Github Logo">
+      </div>
+    </a>
+  {{/if}}
+</td>
 <td class="cell-gravatar hidden-xs">
   <a href="https://www.npmjs.com/~{{user.name}}" target="_blank">
     <img src="{{user.gravatar}}?s=30&d=retro" class="gravatar">
