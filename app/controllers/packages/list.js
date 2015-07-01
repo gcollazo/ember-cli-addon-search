@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import computedFilterByQuery from '../../utils/filter-by-query';
+import computedFilterByQuery from 'ember-cli-filter-by-query';
 
 var SCROLL_TO_POSITION = 200;
 
