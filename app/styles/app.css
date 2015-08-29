@@ -312,6 +312,58 @@ a.sort-button {
   background-color: #3C820A;
 }
 
+/* Placeholder styles */
+.placeholder__pakcage-name {
+  background-color: #F5F5F5;
+  width: 280px;
+  height: 24px;
+  margin-top: 7px;
+}
+
+.placeholder__description-line {
+  margin-top: 3px;
+  background-color: #F5F5F5;
+  width: 350px;
+  height: 16px;
+}
+
+.placeholder__description-line--second {
+  width: 320px;
+}
+
+.placeholder__demo-button {
+  margin-top: 3px;
+  background-color: #F5F5F5;
+  height:20px;
+  width: 45px;
+}
+
+.placeholder__gravatar {
+  background-color: #F5F5F5;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.placeholder__username {
+  display: inline-block;
+  background-color: #F5F5F5;
+  height: 16px;
+  width: 70px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.placeholder__score {
+  background-color: #F5F5F5;
+}
+
+.placeholder__updated {
+  background-color: #F5F5F5;
+  height: 16px;
+  width: 80px;
+}
 
 /* xs */
 @media (min-width: 0px) and (max-width: 767px) {

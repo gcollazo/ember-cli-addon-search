@@ -32,6 +32,7 @@
     "ember-data": "1.13.4",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.2",
+    "ember-load": "0.0.1",
     "ember-moment": "^1.0.0"
   }
 }

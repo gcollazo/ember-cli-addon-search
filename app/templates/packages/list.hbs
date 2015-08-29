@@ -18,30 +18,7 @@
     <div class="col-sm-12">
       <table class="table table-packages">
         <thead>
-          <tr>
-            <th>
-              <a href="#" {{action "sortBy" "name"}} class="sort-button">
-                NAME
-              </a>
-            </th>
-            <th class="hidden-xs"></th>
-            <th class="hidden-xs"></th>
-            <th class="hidden-xs">
-              <a href="#" {{action "sortBy" "_npmUser.name"}} class="sort-button">
-                OWNER
-              </a>
-            </th>
-            <th class="hidden-xs">
-              <a href="#" {{action "sortBy" "emberObserver.score"}} class="sort-button" title="Ember Observer score">
-                SCORE
-              </a>
-            </th>
-            <th class="hidden-xs">
-              <a href="#" {{action "sortBy" "time.modified"}} class="sort-button">
-                UPDATED
-              </a>
-            </th>
-          </tr>
+          {{partial "-table-header"}}
         </thead>
         <tbody>
           {{#each currentPageContent key="@guid" as |pkg|}}
