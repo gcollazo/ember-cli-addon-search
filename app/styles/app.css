@@ -323,12 +323,8 @@ a.sort-button {
 .placeholder__description-line {
   margin-top: 3px;
   background-color: #F5F5F5;
-  width: 350px;
-  height: 16px;
-}
-
-.placeholder__description-line--second {
-  width: 320px;
+  width: 280px;
+  height: 14px;
 }
 
 .placeholder__demo-button {
