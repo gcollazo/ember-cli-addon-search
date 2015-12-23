@@ -17,12 +17,14 @@
       </div>
     {{/if}}
   {{else}}
-    {{em-install-command package=pkg.name}}
+    {{em-install-command command=installCommand}}
   {{/if}}
 </td>
 <td class="cell-clipboard hidden-xs">
-  <a href="#" {{action 'toggleDisplayInstallCommand'}} class="cell-clipboard-link">
-    {{em-icon-clipboard color=(if hideInstallCommand '#7f7f7f' '#ea3723')}}
+  <a href='#' {{action 'toggleDisplayInstallCommand'}} class="cell-clipboard-link">
+    {{#clip-board text=installCommand tagName='span' onSuccess="copySuccess"}}
+      {{em-icon-clipboard color=(if hideInstallCommand '#7f7f7f' '#ea3723')}}
+    {{/clip-board}}
   </a>
 </td>
 <td class="cell-github hidden-xs">
