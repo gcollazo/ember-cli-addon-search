@@ -141,23 +141,6 @@ tr.package:hover .github-logo {
   display: inline-block;
 }
 
-.install-command-input {
-  width: 100%;
-  border-radius: 6px;
-  height: 38px;
-  border-style: none;
-  background-color: #F0F0F0;
-  font-size: 19px;
-  padding: 7px;
-  outline: 0;
-  font-family: monospace;
-}
-
-.install-command p {
-  margin: 3px 0 0 0;
-  font-size: 11px;
-}
-
 a.sort-button {
   color: black;
 }
