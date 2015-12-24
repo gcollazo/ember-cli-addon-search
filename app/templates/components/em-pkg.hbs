@@ -1,29 +1,23 @@
 <td class="cell-name">
-  {{#if hideInstallCommand}}
-    <a href="https://www.npmjs.com/{{pkg.name}}"
-       target="_blank"
-       class="package-link">{{split-prefix pkg.name}}</a>
-    {{#if isNew}}
-      <div class="new-package">NEW</div>
-    {{/if}}
-    {{#if hasDescription}}
-      <div class="description">
-        {{pkg.description}}
-      </div>
-    {{/if}}
-    {{#if pkg.demoURL}}
-      <div>
-        <a class="demo-link" href="{{unbound pkg.demoURL}}" target="_blank">DEMO</a>
-      </div>
-    {{/if}}
-  {{else}}
-    {{em-install-command package=pkg.name}}
+  <a href="https://www.npmjs.com/{{pkg.name}}"
+     target="_blank"
+     class="package-link">{{split-prefix pkg.name}}</a>
+  {{#if isNew}}
+    <div class="new-package">NEW</div>
+  {{/if}}
+  {{#if hasDescription}}
+    <div class="description">
+      {{pkg.description}}
+    </div>
+  {{/if}}
+  {{#if pkg.demoURL}}
+    <div>
+      <a class="demo-link" href="{{unbound pkg.demoURL}}" target="_blank">DEMO</a>
+    </div>
   {{/if}}
 </td>
 <td class="cell-clipboard hidden-xs">
-  <a href="#" {{action 'toggleDisplayInstallCommand'}} class="cell-clipboard-link">
-    {{em-icon-clipboard color=(if hideInstallCommand '#7f7f7f' '#ea3723')}}
-  </a>
+  {{em-icon-clipboard command=installCommand color=(if hideInstallCommand '#7f7f7f' '#ea3723')}}
 </td>
 <td class="cell-github hidden-xs">
   {{#if pkg.github}}
@@ -47,5 +41,5 @@
     name=pkg.name}}
 </td>
 <td class="cell-updated hidden-xs">
-  {{ago pkg.time.modified}}
+  {{moment-from-now pkg.time.modified}}
 </td>
