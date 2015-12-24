@@ -15,7 +15,9 @@
     "bootstrap": "~3.3.2",
     "ember-cli-moment-shim": "~0.0.3",
     "sifter": "~0.4.1",
-    "clipboard": "~1.5.5"
+    "clipboard": "~1.5.5",
+    "moment": ">= 2.8.0",
+    "moment-timezone": ">= 0.1.0"
   },
   "resolutions": {
     "ember": "2.0.0-beta.1",
