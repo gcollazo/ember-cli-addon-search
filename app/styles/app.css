@@ -129,7 +129,8 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .clipboard {
   padding-top: 5px;
-  padding-left: 10px
+  padding-left: 10px;
+  cursor: pointer;
 }
 
 .github-logo {
