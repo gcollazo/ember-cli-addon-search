@@ -1,0 +1,48 @@
+{{yield}}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <h1 class="branding">{{#link-to 'packages.list' (query-params page=1 query="")}}
+        Ember Addons{{/link-to}}
+      </h1>
+    </div>
+    <div class="col-sm-6">
+      {{#if packageCount}}
+        {{input type="search"
+        value=query
+        placeholder=placeholder
+        class="form-control search-field"
+        autofocus="autofocus"
+        key-press="resetPage"}}
+      {{else}}
+        <div class="search-wrapper">
+          <input type="text" placeholder="Filter addons" class="form-control search-field" disabled="disabled">
+        </div>
+      {{/if}}
+    </div>
+    <div class="col-sm-3 hidden-xs">
+      <div class='top-menu-wrapper text-center'>
+        <div class='col-sm-3'>
+          <a href="https://github.com/gcollazo/ember-cli-addon-search" class='top-menu-link'>
+            {{fa-icon icon='github'}}
+          </a>
+        </div>
+        <div class='col-sm-3'>
+          <a href="http://feeds.feedburner.com/EmberAddons" class='top-menu-link'>
+            {{fa-icon icon='rss'}}
+          </a>
+        </div>
+        <div class='col-sm-3'>
+          <a href="https://twitter.com/share" class='top-menu-link' data-url="http://emberaddons.com" data-text="Ember Addons: Listing thousands of addons that extend Ember.js and Ember CLI" data-related="BuiltWithEmber" data-count="none" data-hashtags="emberjs">
+            {{fa-icon icon='twitter'}}
+          </a>
+        </div>
+        <div class="col-sm-3">
+          <a href="http://www.charted.co/?%7B%22dataUrl%22%3A%22http%3A%2F%2Fember-addons-server.herokuapp.com%2Fstats.csv%22%2C%22charts%22%3A%5B%7B%22type%22%3A%22line%22%2C%22title%22%3A%22Ember%20Addons%22%2C%22note%22%3A%22This%20chart%20shows%20the%20number%20of%20available%20addons%20for%20ember-cli%20on%20npmjs.com.%20http%3A%2F%2Femberaddons.com%22%7D%5D%7D" class='top-menu-link' target='_blank'>
+            {{fa-icon icon='line-chart'}}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

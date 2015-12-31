@@ -17,6 +17,7 @@
     "sifter": "~0.4.1",
     "clipboard": "~1.5.5",
     "moment": ">= 2.8.0",
-    "moment-timezone": ">= 0.1.0"
+    "moment-timezone": ">= 0.1.0",
+    "font-awesome": "~4.4.0"
   }
 }
