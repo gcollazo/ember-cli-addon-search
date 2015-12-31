@@ -350,7 +350,9 @@ a.sort-button {
 /* xs */
 @media (min-width: 0px) and (max-width: 767px) {
   .branding {
-    font-size: 24px;
+    font-size: 26px;
+    margin-bottom: 8px;
+    text-align: center;
   }
 
   .description  {
