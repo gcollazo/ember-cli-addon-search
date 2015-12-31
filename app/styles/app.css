@@ -8,7 +8,7 @@ body {
 
 header {
   background-color: #ea3723;
-  padding: 20px 0 0 0;
+  padding: 20px 0
 }
 
 a, a:hover, a:active, a:visited {
@@ -21,7 +21,6 @@ a span.name-prefix {
 
 .search-wrapper {
   background-color: #ea3723;
-  padding: 20px 0 25px 0;
 }
 
 .container-loading {
@@ -46,6 +45,7 @@ a span.name-prefix {
   font-weight: 100;
   margin:0;
   font-size: 40px;
+  padding-top: 4px;
 }
 
 .branding a {
@@ -58,25 +58,27 @@ a span.name-prefix {
   text-decoration: none;
 }
 
-.header-subtitle {
-  color: #6b1210;
-}
-
-a.package-count-link {
-  color: #6b1210;
+.top-menu-wrapper {
+  font-size: 24px;
+  padding-top: 10px;
+  overflow: hidden;
 }
 
 a.top-menu-link,
 a.top-menu-link:hover {
-  color: #6b1210;
-  font-size: 18px;
+  color: white;
 }
 
 .search-field {
-  border-radius: 0;
-  border: 0;
+  border-radius: 4px;
+  border: 2px solid #A94442;
   font-size: 18px;
   height: 50px;
+}
+
+.form-control:focus {
+  border-color: #A94442;
+  box-shadow: none !important;
 }
 
 .search-field[disabled=disabled] {
@@ -347,8 +349,8 @@ a.sort-button {
 
 /* xs */
 @media (min-width: 0px) and (max-width: 767px) {
-  .header-subtitle {
-    font-size: 14px;
+  .branding {
+    font-size: 24px;
   }
 
   .description  {
@@ -359,13 +361,23 @@ a.sort-button {
 
 /* sm */
 @media (min-width: 768px) and (max-width: 991px) {
+  .branding {
+    font-size: 26px;
+    padding-top: 12px;
+  }
+
   .description  {
     width: 220px;
   }
 }
 
 /* md */
-@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .branding {
+    font-size: 32px;
+    padding-top: 8px;
+  }
+}
 
 /* lg */
 @media (min-width: 1200px) {}

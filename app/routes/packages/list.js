@@ -13,6 +13,6 @@ export default Ember.Route.extend({
 
   setupController: function(controller, model) {
     this._super.apply(this, arguments);
-    this.controllerFor('application').set('packageCount', model.get('length'));
+    this.controllerFor(this.routeName).set('packageCount', model.get('length'));
   }
 });

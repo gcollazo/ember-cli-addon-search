@@ -9,6 +9,7 @@ export default Ember.Controller.extend({
   query: '',
   page: 1,
   limit: 12,
+  packageCount: null,
 
   filteredPackages: computedFilterByQuery('model',
     ['name', '_npmUser.name', 'description'], 'query', { conjunction: 'and' }
