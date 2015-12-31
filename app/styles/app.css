@@ -349,8 +349,8 @@ a.sort-button {
 
 /* xs */
 @media (min-width: 0px) and (max-width: 767px) {
-  .header-subtitle {
-    font-size: 14px;
+  .branding {
+    font-size: 24px;
   }
 
   .description  {
@@ -361,13 +361,23 @@ a.sort-button {
 
 /* sm */
 @media (min-width: 768px) and (max-width: 991px) {
+  .branding {
+    font-size: 26px;
+    padding-top: 12px;
+  }
+
   .description  {
     width: 220px;
   }
 }
 
 /* md */
-@media (min-width: 992px) and (max-width: 1199px) {}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .branding {
+    font-size: 32px;
+    padding-top: 8px;
+  }
+}
 
 /* lg */
 @media (min-width: 1200px) {}
