@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
-  this.resource('packages', { path: '/' }, function() {
+  this.route('packages', { resetNamespace: true, path: '/' }, function() {
     this.route('list', { path: '/' });
   });
 });
