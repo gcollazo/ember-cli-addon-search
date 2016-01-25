@@ -5,5 +5,11 @@ export default Ember.Component.extend({
 
   placeholder: Ember.computed('packageCount', function() {
     return `Search ${this.get('packageCount')} addons`;
-  })
+  }),
+
+  actions: {
+    resetPageCount() {
+      this.sendAction('reset-page');
+    }
+  }
 });
