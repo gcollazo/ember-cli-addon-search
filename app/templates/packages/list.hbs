@@ -10,7 +10,7 @@
           {{partial "-table-header"}}
         </thead>
         <tbody>
-          {{#each currentPageContent key="@guid" as |pkg|}}
+          {{#each currentPageContent as |pkg|}}
             {{em-pkg pkg=pkg}}
           {{else}}
             <td colspan="6">

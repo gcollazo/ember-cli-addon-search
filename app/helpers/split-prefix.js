@@ -3,14 +3,14 @@ import Ember from 'ember';
 const NAME_REGEX = /^(ember\-cli\-|ember\-)(.+)/;
 
 export function splitPrefix(value) {
-  if ((typeof value) !== 'string') {
+  if ((typeof value[0]) !== 'string') {
     return null;
   }
 
-  const parts = value.match(NAME_REGEX);
+  const parts = value[0].match(NAME_REGEX);
 
   if (!parts) {
-    return value;
+    return value[0];
   }
 
   const prefix = parts[1];
