@@ -9,12 +9,16 @@ export default Ember.Component.extend({
   list: [],
 
   didInsertElement() {
+    this._super.apply(this, arguments);
+
     Ember.$(document).on('keyup', event => {
       this.onGlobalKeyUp(event);
     });
   },
 
   willDestroyElement() {
+    this._super.apply(this, arguments);
+
     Ember.$(document).off('keyup');
   },
 
@@ -27,12 +31,12 @@ export default Ember.Component.extend({
     }
 
     switch (key) {
-      case 37:
-        this.get('controller').send('previousPage');
-        break;
-      case 39:
-        this.get('controller').send('nextPage');
-        break;
+    case 37:
+      this.get('controller').send('previousPage');
+      break;
+    case 39:
+      this.get('controller').send('nextPage');
+      break;
     }
   },
 
