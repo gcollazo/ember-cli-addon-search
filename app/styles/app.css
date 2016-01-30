@@ -152,9 +152,28 @@ a.sort-button {
   margin-top: 20px;
 }
 
+.gravatar--wrapper {
+  display: inline;
+}
+
 .gravatar {
   border-radius: 50%;
   margin-right: 5px;
+}
+
+.author-information {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+.author-information__anchor:hover {
+  text-decoration: none;
+  color: #D02714;
 }
 
 .package-link {
