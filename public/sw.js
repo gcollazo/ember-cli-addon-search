@@ -15,7 +15,7 @@ var CACHE_DEPENDENCIES = [
 ];
 CACHE_DEPENDENCIES.push(addonsLink);
 
-function urlsToPrefetch(cache) {
+function urlsToPrefetch() {
   return fetch(addonsLink).then(function(response) {
     return response.json();
   }).then(function(json) {
