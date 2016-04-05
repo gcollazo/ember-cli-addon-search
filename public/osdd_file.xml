@@ -1,6 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
- <ShortName>Search Ember Addons</ShortName>
- <Description>Search Ember Addons</Description>
- <Url type="text/html" method="get" template="www.emberaddons.com/?query={searchTerms}"/>
+  <ShortName>Search Ember Addons</ShortName>
+  <Description>Search Ember Addons</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Url type="text/html" method="get" template="http://www.emberaddons.com/?query={searchTerms}"/>
+  <Image width="16" height="16">http://www.emberaddons.com/assets/favicon-f2d07120d2bb7f0d4a63810011903d75.png</Image>
+  <SearchForm>http://www.emberaddons.com/</SearchForm>
 </OpenSearchDescription>
