@@ -29,7 +29,7 @@ module.exports = function(environment) {
       excludePaths: ['test.*', 'robots.txt'],
       includeRegistration: true,
       serviceWorkerFile: 'sw.js',
-      skipWaiting: false
+      skipWaiting: true
     }
   };
 
