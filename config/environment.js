@@ -21,6 +21,15 @@ module.exports = function(environment) {
 
     'ember-load': {
       loadingIndicatorClass: 'ember-load-indicator'
+    },
+
+    serviceWorker: {
+      enabled: true,
+      debug: true,
+      excludePaths: ['test.*', 'robots.txt'],
+      includeRegistration: true,
+      serviceWorkerFile: 'sw.js',
+      skipWaiting: false
     }
   };
 
