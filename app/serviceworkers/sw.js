@@ -1,7 +1,7 @@
 const addonsLink = 'https://io-builtwithember-addons-data.s3.amazonaws.com/addons.json';
 const GRAVATAR_CACHE = 'GRAVATAR_URLS';
 
-toolbox.router.get('/addons/json', toolbox.networkFirst, {origin: 'https://io-builtwithember-addons-data.s3.amazonaws.com'});
+toolbox.router.get('/addons.json', toolbox.networkFirst, {origin: 'https://io-builtwithember-addons-data.s3.amazonaws.com'});
 toolbox.precache(addonsLink);
 
 // Request the addons.js, filter the gravatar ulrs and return an array of gravatar urls.
