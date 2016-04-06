@@ -36,7 +36,7 @@ function gravatarUrls() {
 self.addEventListener('install', function(event) {
   event.waitUntil(
     gravatarUrls().then(function(urls) {
-      addGravatarUrlsToRouter(urls);
+      // addGravatarUrlsToRouter(urls);
 
       // Open the specified cache if it exists. If the cache doesn't exist
       // create it and add prefetch the urls on the array.
