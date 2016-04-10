@@ -1,6 +1,13 @@
 const addonsUrl = 'https://io-builtwithember-addons-data.s3.amazonaws.com/addons.json';
 const GRAVATAR_CACHE = 'GRAVATAR_URLS';
 
+/**
+  The addons url variable will return the addons.json that the app needs.
+  We will add this url to the broccoli-sw. The broccoli-sw uses sw-toolbox.
+  The sw-toolbox gives us handler functions that we can use to manage the request.
+
+  We are using the networkFirst strategy in order to keep this file updated.
+*/
 toolbox.router.get('/addons.json', toolbox.networkFirst, {origin: 'https://io-builtwithember-addons-data.s3.amazonaws.com'});
 toolbox.precache(addonsUrl);
 
@@ -24,13 +31,18 @@ function isGravatarUrl(url) {
   return url.indexOf('https://secure.gravatar.com');
 }
 
-// waitUntil expects a promise and it will stop the worker execution
-// until the promise is resolved.
+/**
+  waitUntil expects a promise and it will stop the worker execution until the promise is resolved.
+  The gravatarUrls will fetch the addons.json file and filter the users gravatars.
+  When we have the array of urls we open or create the gravatar cache and add the urls.
+*/
 self.addEventListener('install', function(event) {
   event.waitUntil(
     gravatarUrls().then(function(urls) {
-      // Open the specified cache if it exists. If the cache doesn't exist
-      // create it and add prefetch the urls on the array.
+      /**
+        Open the specified cache if it exists. If the cache doesn't exist
+        create it and add prefetch the urls on the array.
+      */
       caches.open(GRAVATAR_CACHE).then(function(cache) {
         cache.addAll(urls);
       });
