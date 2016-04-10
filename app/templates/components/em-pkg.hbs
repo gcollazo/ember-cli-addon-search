@@ -29,9 +29,13 @@
   {{/if}}
 </td>
 <td class="cell-gravatar hidden-xs">
-  <a href="https://www.npmjs.com/~{{user.name}}" target="_blank">
-    <img src="{{user.gravatar}}?s=30&d=retro" class="gravatar">
-    {{user.name}}
+  <a href="https://www.npmjs.com/~{{user.name}}" target="_blank" class="author-information__anchor">
+    <div class='gravatar--wrapper'>
+      <img src="{{user.gravatar}}?s=30&d=retro" class="gravatar">
+    </div>
+    <div class="author-information">
+      {{user.name}}
+    </div>
   </a>
 </td>
 <td class="cell-downloads hidden-xs">
