@@ -104,6 +104,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .cell-name {
   padding: 8px 8px 15px 8px !important;
+  max-width: 606px;
 }
 
 .cell-gravatar {
@@ -159,11 +160,14 @@ a.sort-button {
 
 .package-link {
   font-size: 24px;
-  max-width: 100%;
-  height: 35px;
+  max-width: 90%;
+  height: 42px;
   overflow: hidden;
   display: inline-block;
   word-break: break-all;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .new-package {
