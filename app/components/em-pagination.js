@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const {
+  Component,
+  computed
+} = Ember;
+
+export default Component.extend({
   tagName: 'tr',
   classNames: ['pagination-row'],
 
@@ -38,11 +43,11 @@ export default Ember.Component.extend({
     }
   },
 
-  hasPreviousPage: Ember.computed('page', function() {
+  hasPreviousPage: computed('page', function() {
     return this.get('page') !== 1;
   }).readOnly(),
 
-  hasNextPage: Ember.computed('page', 'limit', 'list.length', function() {
+  hasNextPage: computed('page', 'limit', 'list.length', function() {
     const page = this.get('page');
     const limit = this.get('limit');
     const length = this.get('list.length');

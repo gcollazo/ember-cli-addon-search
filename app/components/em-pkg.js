@@ -1,23 +1,29 @@
 import Ember from 'ember';
 import moment from 'moment';
 
-export default Ember.Component.extend({
+const {
+  Component,
+  computed
+} = Ember;
+
+export default Component.extend({
   tagName: 'tr',
   classNames: ['package'],
 
-  downloads: Ember.computed.readOnly('pkg.downloads.downloads'),
-  user: Ember.computed.readOnly('pkg._npmUser'),
+  downloads: computed.readOnly('pkg.downloads.downloads'),
+  user: computed.readOnly('pkg._npmUser'),
   hideInstallCommand: true,
 
-  installCommand: Ember.computed('pkg.name', function() {
+  installCommand: computed('pkg.name', function() {
     return `ember install ${this.get('pkg.name')}`;
   }),
 
-  isNew: Ember.computed('pkg.time.created', function() {
+  isNew: computed('pkg.time.created', function() {
     return moment().diff(this.get('pkg.time.created'), 'days') <= 7;
   }).readOnly(),
 
-  hasDescription: Ember.computed('pkg.description', function() {
-    return this.get('pkg.description') !== 'The default blueprint for ember-cli addons.';
+  hasDescription: computed('pkg.description', function() {
+    const defaultString = 'The default blueprint for ember-cli addons.';
+    return this.get('pkg.description') !== defaultString;
   }).readOnly()
 });

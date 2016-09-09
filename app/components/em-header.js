@@ -1,9 +1,14 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const {
+  Component,
+  computed
+} = Ember;
+
+export default Component.extend({
   tagName: 'header',
 
-  placeholder: Ember.computed('packageCount', function() {
+  placeholder: computed('packageCount', function() {
     return `Search ${this.get('packageCount')} addons`;
   }),
 
