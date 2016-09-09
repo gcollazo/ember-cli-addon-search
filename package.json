@@ -10,7 +10,8 @@
   "scripts": {
     "start": "ember server",
     "build": "ember build",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy": "ember deploy production"
   },
   "repository": "https://github.com/gcollazo/ember-cli-addon-search",
   "engines": {
