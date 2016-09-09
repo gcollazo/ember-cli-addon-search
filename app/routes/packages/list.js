@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const {
+  Route
+} = Ember;
+
+export default Route.extend({
   queryParams: {
     query: {
       replace: true
@@ -12,7 +16,7 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
-    this._super.apply(this, arguments);
+    this._super(...arguments);
     this.controllerFor(this.routeName).set('packageCount', model.get('length'));
   }
 });

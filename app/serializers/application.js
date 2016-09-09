@@ -2,8 +2,8 @@ import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
   normalizeArrayResponse: function(store, type, payload) {
-    var id = 1;
-    var packages = payload.map(function(p) {
+    let id = 1;
+    const packages = payload.map(function(p) {
       p.id = id++;
       return p;
     });
