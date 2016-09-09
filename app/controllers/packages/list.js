@@ -1,9 +1,14 @@
 import Ember from 'ember';
 import computedFilterByQuery from 'ember-cli-filter-by-query';
 
-var SCROLL_TO_POSITION = 0;
+const {
+  Controller,
+  computed
+} = Ember;
 
-export default Ember.Controller.extend({
+const SCROLL_TO_POSITION = 0;
+
+export default Controller.extend({
   queryParams: ['query', 'page'],
 
   query: '',
@@ -18,23 +23,28 @@ export default Ember.Controller.extend({
   sortAscending: true,
   sortProperty: 'time.modified',
 
-  sortedPackages: Ember.computed('filteredPackages', 'sortProperty', 'sortAscending', function() {
-    var sorted = this.get('filteredPackages').sortBy(this.get('sortProperty'));
+  sortedPackages: computed(
+    'filteredPackages',
+    'sortProperty',
+    'sortAscending',
+    function() {
+      const sorted = this.get('filteredPackages')
+        .sortBy(this.get('sortProperty'));
 
-    if (this.get('sortAscending')) {
-      sorted.reverse();
-    }
-    return sorted;
-  }).readOnly(),
+      if (this.get('sortAscending')) {
+        sorted.reverse();
+      }
+      return sorted;
+    }).readOnly(),
 
-  currentPageContent: Ember.computed('page', 'sortedPackages', 'query', function() {
-    var page = this.get('page');
-    var limit = this.get('limit');
+  currentPageContent: computed('page', 'sortedPackages', 'query', function() {
+    const page = this.get('page');
+    const limit = this.get('limit');
 
     return this.get('sortedPackages').slice((page - 1) * limit, page * limit);
   }).readOnly(),
 
-  nothingFound: Ember.computed.equal('sortedPackages.length', 0),
+  nothingFound: computed.equal('sortedPackages.length', 0),
 
   actions: {
     resetPage: function() {
