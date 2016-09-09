@@ -1,5 +1,11 @@
 import Ember from 'ember';
 
+const {
+  Handlebars: { Utils: { escapeExpression } },
+  Helper: { helper },
+  String: { htmlSafe }
+} = Ember;
+
 const NAME_REGEX = /^(ember\-cli\-|ember\-)(.+)/;
 
 export function splitPrefix(value) {
@@ -14,9 +20,12 @@ export function splitPrefix(value) {
   }
 
   const prefix = parts[1];
-  const name = Ember.Handlebars.Utils.escapeExpression(parts[2]);
+  const name = escapeExpression(parts[2]);
 
-  return new Ember.Handlebars.SafeString(`<span class="name-prefix">${prefix}</span><span class="name-main">${name}</span>`);
+  return htmlSafe(
+    `<span class="name-prefix">${prefix}</span>` +
+    `<span class="name-main">${name}</span>`
+  );
 }
 
-export default Ember.Helper.helper(splitPrefix);
+export default helper(splitPrefix);
