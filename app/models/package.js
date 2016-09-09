@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-var attr = DS.attr;
+const attr = DS.attr;
 
 export default DS.Model.extend({
   _npmUser: attr(),
