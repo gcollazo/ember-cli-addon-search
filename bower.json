@@ -1,7 +1,7 @@
 {
   "name": "ember-addons-website",
   "dependencies": {
-    "ember": "2.9.0-beta.1",
+    "ember": "2.9.0-beta.2",
     "ember-cli-shims": "0.1.0",
     "ember-cli-test-loader": "0.2.1",
     "ember-load-initializers": "0.1.7",
