@@ -9,16 +9,16 @@
     <link rel="alternate" type="application/rss+xml" title="Ember Addons" href="http://feeds.feedburner.com/EmberAddons">
     <link type="application/opensearchdescription+xml" rel="search" href="osdd_file.xml" title="Search Ember Addons">
 
-    {{content-for 'head'}}
+    {{content-for "head"}}
 
     <link rel="shortcut icon" href="assets/favicon.png">
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/ember-addons-website.css">
 
-    {{content-for 'head-footer'}}
+    {{content-for "head-footer"}}
   </head>
   <body>
-    {{content-for 'body'}}
+    {{content-for "body"}}
 
     <div class="ember-load-indicator">
       <header>
@@ -67,6 +67,6 @@
     <script src="assets/ember-addons-website.js"></script>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-    {{content-for 'body-footer'}}
+    {{content-for "body-footer"}}
   </body>
 </html>
