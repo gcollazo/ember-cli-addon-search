@@ -4,6 +4,10 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var parseFlag = require('./config/parse-flag');
 var env = EmberApp.env();
 
+var AIRPLANE_MODE    = parseFlag('AIRPLANE_MODE', false);
+var TWITTER_WIDGET   = !AIRPLANE_MODE && parseFlag('TWITTER_WIDGET', env === 'production');
+var GOOGLE_ANALYTICS = !AIRPLANE_MODE && parseFlag('GOOGLE_ANALYTICS', env === 'production');
+
 module.exports = function(defaults) {
   var options = {
     inlineContent: {},
@@ -11,14 +15,17 @@ module.exports = function(defaults) {
     minifyCSS: {},
     sourcemaps: {
       extensions: ['js']
+    },
+    fingerprint: {
+      exclude: ['gravatar.jpg']
     }
   };
 
-  if (parseFlag('TWITTER_WIDGET', env === 'production')) {
+  if (TWITTER_WIDGET) {
     options.inlineContent['snippets/twitter-widget'] = 'app/snippets/twitter-widget.js';
   }
 
-  if (parseFlag('GOOGLE_ANALYTICS', env === 'production')) {
+  if (GOOGLE_ANALYTICS) {
     options.inlineContent['snippets/google-analytics'] = 'app/snippets/google-analytics.js';
   }
 
@@ -45,6 +52,10 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
   app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 
+  if (AIRPLANE_MODE) {
+    app.import('vendor/airplane-mode/addons.json', { destDir: 'assets' });
+    app.import('vendor/airplane-mode/gravatar.jpg', { destDir: 'assets' });
+  }
 
   return app.toTree();
 };
