@@ -21,6 +21,8 @@ module.exports = function(defaults) {
     }
   };
 
+  options.inlineContent['snippets/perf-utils'] = 'app/snippets/perf-utils.js';
+
   if (TWITTER_WIDGET) {
     options.inlineContent['snippets/twitter-widget'] = 'app/snippets/twitter-widget.js';
   }

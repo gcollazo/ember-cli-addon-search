@@ -11,12 +11,47 @@ export default Route.extend({
     }
   },
 
-  model: function() {
+  model() {
     return this.store.findAll('package');
   },
 
-  setupController: function(controller, model) {
-    this._super(...arguments);
-    this.controllerFor(this.routeName).set('packageCount', model.get('length'));
+  afterModel() {
+    performance.mark('dataLoaded');
+    Ember.run.schedule('afterRender', renderEnd);
   }
 });
+
+/*
+ * This provides two additional benchmarking modes `?perf.profile` and
+ * `?perf.tracing`. The former wraps the initial render in a CPU profile. The
+ * latter is intended to be used with `chrome-tracing` where it redirects to
+ * `about:blank` after the initial render as the termination signal.
+ */
+function renderEnd() {
+  requestAnimationFrame(function () {
+    performance.mark('beforePaint');
+
+    requestAnimationFrame(function () {
+      performance.mark('afterPaint');
+
+      performance.measure('assets', 'domLoading', 'beforeVendor');
+
+      performance.measure('evalVendor', 'beforeVendor', 'beforeApp');
+      performance.measure('evalApp', 'beforeApp', 'afterApp');
+
+      performance.measure('boot', 'beforeVendor', 'willTransition');
+      performance.measure('routing', 'willTransition', 'didTransition');
+      performance.measure('render', 'didTransition', 'beforePaint');
+      performance.measure('paint', 'beforePaint', 'afterPaint');
+
+      performance.measure('data', 'willTransition', 'dataLoaded');
+      performance.measure('adterData', 'dataLoaded', 'beforePaint');
+
+      if (location.search === '?perf.tracing') {
+        document.location.href = 'about:blank';
+      } else if (location.search === '?perf.profile') {
+        console.profileEnd('initialRender');
+      }
+    });
+  });
+}
