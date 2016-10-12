@@ -9,18 +9,18 @@
     <link rel="alternate" type="application/rss+xml" title="Ember Addons" href="http://feeds.feedburner.com/EmberAddons">
     <link type="application/opensearchdescription+xml" rel="search" href="osdd_file.xml" title="Search Ember Addons">
 
-    {{content-for 'head'}}
+    {{content-for "head"}}
 
-    <link rel="shortcut icon" href="assets/favicon.png">
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/ember-addons-website.css">
+    <link rel="shortcut icon" href="{{rootURL}}favicon.png">
+    <link rel="stylesheet" href="{{rootURL}}vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}ember-addons-website.css">
 
     {{content-for "snippets/perf-utils"}}
 
-    {{content-for 'head-footer'}}
+    {{content-for "head-footer"}}
   </head>
   <body>
-    {{content-for 'body'}}
+    {{content-for "body"}}
 
     <div class="ember-load-indicator">
       <header>
@@ -65,21 +65,21 @@
       </div>
     </div>
 
-    {{content-for 'snippets/google-analytics'}}
+    {{content-for "snippets/google-analytics"}}
 
     <script>performance.mark("beforeVendor");</script>
-    <script src="assets/vendor.js"></script>
+    <script src="{{rootURL}}vendor.js"></script>
     <script>performance.mark("beforeApp");</script>
     <script>
       if (window.location.search === "?perf.profile") {
         console.profile("initialRender");
       }
     </script>
-    <script src="assets/ember-addons-website.js"></script>
+    <script src="{{rootURL}ember-addons-website.js"></script>
     <script>performance.mark("afterApp");</script>
 
-    {{content-for 'snippets/twitter-widget'}}
+    {{content-for "snippets/twitter-widget"}}
 
-    {{content-for 'body-footer'}}
+    {{content-for "body-footer"}}
   </body>
 </html>
