@@ -14,7 +14,7 @@ export default Controller.extend({
   query: '',
   page: 1,
   limit: 12,
-  packageCount: null,
+  packageCount: computed.alias('model.length'),
 
   filteredPackages: computedFilterByQuery('model',
     ['name', '_npmUser.name', 'description'], 'query', { conjunction: 'and' }

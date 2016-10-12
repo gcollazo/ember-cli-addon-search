@@ -1,8 +1,11 @@
 /* jshint node: true */
 
+var parseFlag = require('./parse-flag');
+var AIRPLANE_MODE = parseFlag('AIRPLANE_MODE', false);
+
 module.exports = function(environment) {
   var ENV = {
-    host: "https://io-builtwithember-addons-data.s3.amazonaws.com",
+    host: AIRPLANE_MODE ? '/assets' : 'https://io-builtwithember-addons-data.s3.amazonaws.com',
     modulePrefix: 'ember-addons-website',
     environment: environment,
     baseURL: '/',

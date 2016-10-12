@@ -1,10 +1,43 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var parseFlag = require('./config/parse-flag');
+var env = EmberApp.env();
+
+var AIRPLANE_MODE    = parseFlag('AIRPLANE_MODE', false);
+var TWITTER_WIDGET   = !AIRPLANE_MODE && parseFlag('TWITTER_WIDGET', env === 'production');
+var GOOGLE_ANALYTICS = !AIRPLANE_MODE && parseFlag('GOOGLE_ANALYTICS', env === 'production');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
-  });
+  var options = {
+    inlineContent: {},
+    minifyJS: {},
+    minifyCSS: {},
+    sourcemaps: {
+      extensions: ['js']
+    },
+    fingerprint: {
+      exclude: ['gravatar.jpg']
+    }
+  };
+
+  options.inlineContent['snippets/perf-utils'] = 'app/snippets/perf-utils.js';
+
+  if (TWITTER_WIDGET) {
+    options.inlineContent['snippets/twitter-widget'] = 'app/snippets/twitter-widget.js';
+  }
+
+  if (GOOGLE_ANALYTICS) {
+    options.inlineContent['snippets/google-analytics'] = 'app/snippets/google-analytics.js';
+  }
+
+  options.minifyJS.enabled = parseFlag('MINIFY_JS', env === 'production');
+
+  options.minifyCSS.enabled = parseFlag('MINIFY_CSS', env === 'production');
+
+  options.sourcemaps.enabled = parseFlag('SOURCEMAPS', env !== 'production');
+
+  var app = new EmberApp(defaults, options);
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
@@ -21,6 +54,10 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
   app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 
+  if (AIRPLANE_MODE) {
+    app.import('vendor/airplane-mode/addons.json', { destDir: 'assets' });
+    app.import('vendor/airplane-mode/gravatar.jpg', { destDir: 'assets' });
+  }
 
   return app.toTree();
 };
