@@ -12,7 +12,9 @@ const Router = Ember.Router.extend({
   didTransition() {
     this._super(...arguments);
     performance.mark('didTransition');
-  }
+  },
+
+  rootURL: config.rootURL
 });
 
 export default Router.map(function() {
