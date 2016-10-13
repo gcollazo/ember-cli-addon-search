@@ -8,7 +8,7 @@ module.exports = function(environment) {
     host: AIRPLANE_MODE ? '/assets' : 'https://io-builtwithember-addons-data.s3.amazonaws.com',
     modulePrefix: 'ember-addons-website',
     environment: environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -33,7 +33,6 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
