@@ -5,7 +5,6 @@ var parseFlag = require('./config/parse-flag');
 var env = EmberApp.env();
 
 var AIRPLANE_MODE    = parseFlag('AIRPLANE_MODE', false);
-var TWITTER_WIDGET   = !AIRPLANE_MODE && parseFlag('TWITTER_WIDGET', env === 'production');
 var GOOGLE_ANALYTICS = !AIRPLANE_MODE && parseFlag('GOOGLE_ANALYTICS', env === 'production');
 
 module.exports = function(defaults) {
@@ -22,10 +21,6 @@ module.exports = function(defaults) {
   };
 
   options.inlineContent['snippets/perf-utils'] = 'app/snippets/perf-utils.js';
-
-  if (TWITTER_WIDGET) {
-    options.inlineContent['snippets/twitter-widget'] = 'app/snippets/twitter-widget.js';
-  }
 
   if (GOOGLE_ANALYTICS) {
     options.inlineContent['snippets/google-analytics'] = 'app/snippets/google-analytics.js';
