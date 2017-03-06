@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('em-icon-clipboard', 'Unit | Component | em icon clipboard', {
   // Specify the other units that are required for this test
-  needs: ['component:clip-board'],
+  needs: ['component:copy-button'],
 
   unit: true
 });

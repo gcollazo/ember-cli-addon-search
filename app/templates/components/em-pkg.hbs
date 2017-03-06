@@ -17,7 +17,10 @@
   {{/if}}
 </td>
 <td class="cell-clipboard hidden-xs">
-  {{em-icon-clipboard command=installCommand color=(if hideInstallCommand '#7f7f7f' '#ea3723')}}
+  {{em-icon-clipboard 
+  	command=installCommand 
+  	color=(if hideInstallCommand '#7f7f7f' '#ea3723')
+  }}
 </td>
 <td class="cell-github hidden-xs">
   {{#if pkg.github}}

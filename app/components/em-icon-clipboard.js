@@ -8,13 +8,22 @@ export default Component.extend({
   tagName: 'div',
   classNames: ['clipboard'],
 
-  click() {
-    this.$('[data-toggle="tooltip"]')
-      .attr('data-original-title', 'Copied!').tooltip('show');
+  mouseEnter() {
+  	this._showToolip('Copy Install Command');
   },
 
-  mouseEnter() {
-    this.$('[data-toggle="tooltip"]')
-      .attr('data-original-title', 'Copy Install Command').tooltip('show');
+  actions: {
+  	success() {
+  		this._showToolip('Copied!');
+  	},
+
+  	error() {
+  		this._showToolip('Error :(');
+  	}
+  },
+
+  _showToolip(text) {
+  	this.$('[data-toggle="tooltip"]')
+	    .attr('data-original-title', text).tooltip('show');
   }
 });
