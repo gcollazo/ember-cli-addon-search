@@ -1,8 +1,8 @@
 import Ember from 'ember';
-import computedFilterByQuery from 'ember-cli-filter-by-query';
 
 const {
   Controller,
+  isPresent,
   computed
 } = Ember;
 
@@ -16,54 +16,16 @@ export default Controller.extend({
   limit: 12,
   packageCount: computed.readOnly('model.length'),
 
-  filteredPackages: computedFilterByQuery('model',
-    ['name', '_npmUser.name', 'description'], 'query', { conjunction: 'and' }
-  ).readOnly(),
-
-  sortAscending: true,
-  sortProperty: 'time.modified',
-
-  sortedPackages: computed(
-    'filteredPackages',
-    'sortProperty',
-    'sortAscending',
-    function() {
-      const sorted = this.get('filteredPackages')
-        .sortBy(this.get('sortProperty'));
-
-      if (this.get('sortAscending')) {
-        sorted.reverse();
-      }
-      return sorted;
-    }).readOnly(),
-
-  currentPageContent: computed('page', 'sortedPackages', 'query', function() {
-    const page = this.get('page');
-    const limit = this.get('limit');
-
-    return this.get('sortedPackages').slice((page - 1) * limit, page * limit);
-  }).readOnly(),
-
-  nothingFound: computed.equal('sortedPackages.length', 0),
-
   actions: {
-    resetPage: function() {
+    resetPage() {
       this.set('page', 1);
     },
-
-    sortBy: function(propertyKey) {
-      if (propertyKey === this.get('sortProperty')) {
-        this.toggleProperty('sortAscending');
-      }
-      this.set('sortProperty', propertyKey);
-    },
-
-    nextPage: function() {
+    nextPage() {
       this.incrementProperty('page');
       window.scrollTo(0, SCROLL_TO_POSITION);
     },
 
-    previousPage: function() {
+    previousPage() {
       this.decrementProperty('page');
       window.scrollTo(0, SCROLL_TO_POSITION);
     }

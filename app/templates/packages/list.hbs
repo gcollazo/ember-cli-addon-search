@@ -7,28 +7,16 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <table class="table table-packages">
-        <thead>
-          {{partial "-table-header"}}
-        </thead>
-        <tbody>
-          {{#each currentPageContent as |pkg|}}
-            {{em-pkg pkg=pkg}}
-          {{else}}
-            <td colspan="6">
-              <p class="not-found">Nothing found for "{{query}}"</p>
-            </td>
-          {{/each}}
+       
+      {{em-list
+        query=query
+        list=model
+        page=page
+        limit=limit
+        previous=(action 'previousPage')
+        next=(action 'nextPage')
+      }}
 
-          {{em-pagination
-            list=sortedPackages
-            page=page
-            limit=limit
-            previous="previousPage"
-            next="nextPage"}}
-
-        </tbody>
-      </table>
     </div>
   </div>
 </div>

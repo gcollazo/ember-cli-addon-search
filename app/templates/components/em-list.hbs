@@ -1,0 +1,38 @@
+<thead>
+  {{partial "-table-header"}}
+</thead>
+
+<tbody>
+  {{#if initalized}}
+    {{#each currentPageContent as |pkg|}}
+      {{em-pkg pkg=pkg}}
+    {{else}}
+      <td colspan="6">
+        <p class="not-found">Nothing found for "{{query}}"</p>
+      </td>
+    {{/each}}
+  {{else}}
+    
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+    {{partial "-placeholder-row"}}
+
+  {{/if}}
+
+  {{em-pagination
+    list=sortedPackages
+    page=page
+    limit=limit
+    previous=previous
+    next=next
+  }}
+</tbody>
