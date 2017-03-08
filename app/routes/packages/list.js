@@ -28,10 +28,10 @@ export default Route.extend({
  * `about:blank` after the initial render as the termination signal.
  */
 function renderEnd() {
-  requestAnimationFrame(function () {
+  requestAnimationFrame(() => {
     performance.mark('beforePaint');
 
-    requestAnimationFrame(function () {
+    requestAnimationFrame(() => {
       performance.mark('afterPaint');
 
       performance.measure('assets', 'domLoading', 'beforeVendor');

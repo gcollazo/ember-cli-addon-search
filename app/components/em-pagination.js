@@ -56,13 +56,13 @@ export default Component.extend({
   }).readOnly(),
 
   actions: {
-    nextPage: function() {
+    nextPage() {
       if (this.get('hasNextPage')) {
         this.sendAction('next');
       }
     },
 
-    previousPage: function() {
+    previousPage() {
       if (this.get('hasPreviousPage')) {
         this.sendAction('previous');
       }
