@@ -7,7 +7,7 @@ const {
   computed
 } = Ember;
 
-const QUERY_DEBOUNCE = 200;
+const QUERY_DEBOUNCE = 300;
 
 export default Component.extend({
   tagName: 'table',
@@ -16,21 +16,16 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     this._filterList(this.get('query'));
-    Ember.run.scheduleOnce('afterRender', () => {
-      this.set('initalized', true);
-    });
   },
 
   didUpdateAttrs() {
     this._super(...arguments);
-
-    const query = this.get('query');
-    this.get('taskFilterList').perform(query, query ? QUERY_DEBOUNCE : 0);
+    this.get('taskFilterList').perform(this.get('query'));
   },
 
   filteredList: [],
-  taskFilterList: task(function* (query, debounce = 0) {
-    yield timeout(debounce);
+  taskFilterList: task(function* (query) {
+    yield timeout(query ? QUERY_DEBOUNCE : 0);
     this._filterList(query);
   }).restartable(),
 
