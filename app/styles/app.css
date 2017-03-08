@@ -41,6 +41,8 @@ a span.name-prefix {
 }
 
 .branding {
+  position: relative;
+  z-index: 1;
   color: white;
   font-weight: 100;
   margin:0;
