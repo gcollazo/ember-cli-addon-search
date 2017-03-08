@@ -35,7 +35,12 @@ export default Component.extend({
   }).restartable(),
 
   _filterList(query) {
-    const filteredList = filterByQuery(this.get('list'), ['name', '_npmUser.name', 'description'], query, { conjunction: 'and' });
+    const filteredList = filterByQuery(
+      this.get('list'),
+      ['name', '_npmUser.name', 'description'],
+      query,
+      { conjunction: 'and' }
+    );
     this.set('filteredList', filteredList);
   },
 
