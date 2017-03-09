@@ -3,7 +3,7 @@ import Ember from 'ember';
 const {
   Controller,
   isPresent,
-  computed
+  computed: { readOnly }
 } = Ember;
 
 const SCROLL_TO_POSITION = 0;
@@ -14,7 +14,7 @@ export default Controller.extend({
   query: '',
   page: 1,
   limit: 12,
-  packageCount: computed.readOnly('model.length'),
+  packageCount: readOnly('model.length'),
 
   actions: {
     resetPage() {
