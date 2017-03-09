@@ -16,9 +16,6 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     this._filterList(this.get('query'));
-    Ember.run.scheduleOnce('afterRender', () => {
-      this.set('initalized', true);
-    });
   },
 
   didUpdateAttrs() {
