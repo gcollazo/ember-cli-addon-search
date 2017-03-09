@@ -3,30 +3,13 @@
 </thead>
 
 <tbody>
-  {{#if initalized}}
-    {{#each currentPageContent as |pkg|}}
-      {{em-pkg pkg=pkg}}
-    {{else}}
-      <td colspan="6">
-        <p class="not-found">Nothing found for "{{query}}"</p>
-      </td>
-    {{/each}}
+  {{#each currentPageContent as |pkg|}}
+    {{em-pkg pkg=pkg}}
   {{else}}
-    
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-    {{partial "-placeholder-row"}}
-
-  {{/if}}
+    <td colspan="6">
+      <p class="not-found">Nothing found for "{{query}}"</p>
+    </td>
+  {{/each}}
 
   {{em-pagination
     list=sortedPackages
