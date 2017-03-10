@@ -1,10 +1,13 @@
 import Ember from 'ember';
 
 const {
-  Route
+  Route,
+  inject
 } = Ember;
 
 export default Route.extend({
+  fastboot: inject.service(),
+
   queryParams: {
     query: {
       replace: true
@@ -12,10 +15,27 @@ export default Route.extend({
   },
 
   model() {
-    return this.store.findAll('package');
+    const isFastBoot = this.get('fastboot.isFastBoot');
+    const shoebox = this.get('fastboot.shoebox');
+    let shoeboxStore = shoebox.retrieve('store');
+
+    if (!isFastBoot && shoeboxStore) {
+      return shoeboxStore;
+    }
+
+    return this.store.findAll('package').then(deals => {
+      if (isFastBoot) {
+        shoebox.put('store', deals.toArray());
+      }
+      return deals;
+    });
   },
 
   afterModel() {
+    if (this.get('fastboot.isFastBoot')) {
+      return;
+    }
+
     performance.mark('dataLoaded');
     Ember.run.schedule('afterRender', renderEnd);
   }

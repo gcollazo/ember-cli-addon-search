@@ -11,7 +11,9 @@
   },
   "repository": "https://github.com/gcollazo/ember-cli-addon-search",
   "scripts": {
-    "start": "ember server",
+    "start": "npm-run-all -p -r start-standard start-fastboot",
+    "start-standard": "ember server",
+    "start-fastboot": "ember fastboot --serve-assets",
     "build": "ember build",
     "test": "ember test",
     "deploy": "ember deploy production"
@@ -21,7 +23,6 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
-    "ember-ajax": "^2.4.1",
     "ember-cli": "2.12.0-beta.2",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-babel": "^5.1.7",
@@ -30,6 +31,7 @@
     "ember-cli-deploy": "0.6.3",
     "ember-cli-deploy-aws-pack": "0.4.0",
     "ember-cli-deprecation-workflow": "^0.2.3",
+    "ember-cli-fastboot": "1.0.0-beta.15",
     "ember-cli-filter-by-query": "1.0.3",
     "ember-cli-font-awesome": "1.3.0",
     "ember-cli-htmlbars": "^1.1.1",
@@ -49,8 +51,10 @@
     "ember-load": "0.0.11",
     "ember-load-initializers": "^0.6.0",
     "ember-moment": "7.3.0",
+    "ember-network": "^0.3.1",
     "ember-resolver": "^2.0.3",
     "ember-source": "2.12.0-beta.2",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "npm-run-all": "^4.0.2"
   }
 }

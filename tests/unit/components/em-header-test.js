@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
 moduleForComponent('em-header', 'Unit | Component | em header', {
-  needs: ['component:em-pkg', 'component:em-pagination', 'component:fa-icon'],
+  needs: ['service:fastboot', 'component:em-pkg', 'component:em-pagination', 'component:fa-icon'],
 
   unit: true
 });
