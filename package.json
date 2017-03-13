@@ -51,6 +51,7 @@
     "ember-moment": "7.3.0",
     "ember-resolver": "^2.0.3",
     "ember-source": "2.12.0-beta.2",
+    "liquid-fire": "^0.27.1",
     "loader.js": "^4.0.10"
   }
 }

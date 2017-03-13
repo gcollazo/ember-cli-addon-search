@@ -7,9 +7,17 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-       
-      {{em-list
-        query=query
+
+      {{#liquid-bind page class="lf-slider" as |currentPage|}}
+        {{em-list
+          query=query
+          list=model
+          page=currentPage
+          limit=limit
+        }}
+      {{/liquid-bind}}
+
+      {{em-pagination
         list=model
         page=page
         limit=limit

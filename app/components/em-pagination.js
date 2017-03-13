@@ -6,7 +6,7 @@ const {
 } = Ember;
 
 export default Component.extend({
-  tagName: 'tr',
+  tagName: 'div',
   classNames: ['pagination-row'],
 
   page: 1,
