@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('em-pagination', 'Unit | Component | x pagination', {
+moduleForComponent('em-pagination', 'Unit | Component | em pagination', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar'],
   unit: true

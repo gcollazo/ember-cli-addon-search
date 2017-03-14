@@ -8,19 +8,16 @@
   <div class="row">
     <div class="col-sm-12">
 
-      {{#liquid-bind page class="lf-slider" as |currentPage|}}
-        {{em-list
-          query=query
-          list=model
-          page=currentPage
-          limit=limit
-        }}
-      {{/liquid-bind}}
-
-      {{em-pagination
+      {{em-list
         list=model
-        page=page
-        limit=limit
+
+        meta=(hash 
+          query=query
+          page=page
+          limit=limit
+          packageCount=packageCount
+        )
+
         previous=(action 'previousPage')
         next=(action 'nextPage')
       }}

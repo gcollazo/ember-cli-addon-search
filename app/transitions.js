@@ -10,7 +10,7 @@ export default function(){
     this.hasClass('lf-slider'),
     this.media(media),
     this.toValue(function(newPage, oldPage){
-      return newPage - 1 === oldPage;
+      return newPage.meta.page - 1 === oldPage.meta.page;
     }),
     this.use('toLeft', opts)
   );
@@ -19,7 +19,7 @@ export default function(){
     this.hasClass('lf-slider'),
     this.media(media),
     this.toValue(function(newPage, oldPage){
-      return newPage + 1 === oldPage;
+      return newPage.meta.page + 1 === oldPage.meta.page;
     }),
     this.use('toRight', opts)
   );

@@ -4,7 +4,8 @@ import filterByQuery from 'ember-cli-filter-by-query/util/filter';
 
 const {
   Component,
-  computed
+  computed,
+  computed: { readOnly, equal }
 } = Ember;
 
 const QUERY_DEBOUNCE = 300;
@@ -15,12 +16,12 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this._filterList(this.get('query'));
+    this._filterList(this.get('meta.query'));
   },
 
   didUpdateAttrs() {
     this._super(...arguments);
-    this.get('taskFilterList').perform(this.get('query'));
+    this.get('taskFilterList').perform(this.get('meta.query'));
   },
 
   filteredList: [],
@@ -56,13 +57,12 @@ export default Component.extend({
       return sorted;
     }).readOnly(),
 
-  currentPageContent: computed('page', 'sortedPackages', 'query', function() {
-    const page = this.get('page');
-    const limit = this.get('limit');
+  currentPageContent: computed('sortedPackages.[]', 'meta.{page,limit}', function() {
+    const { page, limit } = this.get('meta');
     return this.get('sortedPackages').slice((page - 1) * limit, page * limit);
   }).readOnly(),
 
-  nothingFound: computed.equal('sortedPackages.length', 0),
+  nothingFound: equal('sortedPackages.length', 0),
 
   actions: {
     sortBy(propertyKey) {
