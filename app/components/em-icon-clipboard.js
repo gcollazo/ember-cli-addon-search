@@ -9,21 +9,21 @@ export default Component.extend({
   classNames: ['clipboard'],
 
   mouseEnter() {
-  	this._showToolip('Copy Install Command');
+    this._showToolip('Copy Install Command');
   },
 
   actions: {
-  	success() {
-  		this._showToolip('Copied!');
-  	},
+    success() {
+      this._showToolip('Copied!');
+    },
 
-  	error() {
-  		this._showToolip('Error :(');
-  	}
+    error() {
+      this._showToolip('Error :(');
+    }
   },
 
   _showToolip(text) {
-  	this.$('[data-toggle="tooltip"]')
-	    .attr('data-original-title', text).tooltip('show');
+    this.$('[data-toggle="tooltip"]')
+      .attr('data-original-title', text).tooltip('show');
   }
 });
