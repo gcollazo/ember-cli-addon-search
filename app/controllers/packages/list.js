@@ -5,8 +5,6 @@ const {
   computed: { readOnly }
 } = Ember;
 
-const SCROLL_TO_POSITION = 0;
-
 export default Controller.extend({
   queryParams: ['query', 'page'],
 
@@ -21,12 +19,10 @@ export default Controller.extend({
     },
     nextPage() {
       this.incrementProperty('page');
-      window.scrollTo(0, SCROLL_TO_POSITION);
     },
 
     previousPage() {
       this.decrementProperty('page');
-      window.scrollTo(0, SCROLL_TO_POSITION);
     }
   }
 });
