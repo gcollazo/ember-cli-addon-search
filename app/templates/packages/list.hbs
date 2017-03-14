@@ -7,12 +7,17 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-       
+
       {{em-list
-        query=query
         list=model
-        page=page
-        limit=limit
+
+        meta=(hash 
+          query=query
+          page=page
+          limit=limit
+          packageCount=packageCount
+        )
+
         previous=(action 'previousPage')
         next=(action 'nextPage')
       }}

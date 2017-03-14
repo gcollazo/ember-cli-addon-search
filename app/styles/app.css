@@ -214,8 +214,9 @@ a.sort-button {
 }
 
 
-.pagination-cell {
+.pagination-row {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .pagination-link,

@@ -1,0 +1,13 @@
+<thead>
+  {{partial "-table-header"}}
+</thead>
+
+<tbody>
+  {{#each list key="id" as |pkg|}}
+    {{em-pkg pkg=pkg}}
+  {{else}}
+    <td colspan="6">
+      <p class="not-found">Nothing found for "{{query}}"</p>
+    </td>
+  {{/each}}
+</tbody>

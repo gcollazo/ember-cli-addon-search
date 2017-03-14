@@ -1,21 +1,21 @@
-<thead>
-  {{partial "-table-header"}}
-</thead>
+{{#liquid-bind 
+  (hash
+    list=currentPageContent
+    meta=meta
+  ) 
+  class="lf-slider" as |currentState|}}
+  {{em-page
+    list=currentState.list
+    query=currentState.meta.query
 
-<tbody>
-  {{#each currentPageContent key="id" as |pkg|}}
-    {{em-pkg pkg=pkg}}
-  {{else}}
-    <td colspan="6">
-      <p class="not-found">Nothing found for "{{query}}"</p>
-    </td>
-  {{/each}}
-
-  {{em-pagination
-    list=sortedPackages
-    page=page
-    limit=limit
-    previous=previous
-    next=next
+    sortBy=(action 'sortBy')
   }}
-</tbody>
+{{/liquid-bind}}
+
+{{em-pagination
+  list=sortedPackages
+  page=meta.page
+  limit=meta.limit
+  previous=previous
+  next=next
+}}
