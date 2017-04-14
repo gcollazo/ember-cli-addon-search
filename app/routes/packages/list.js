@@ -45,7 +45,7 @@ function renderEnd() {
       performance.measure('paint', 'beforePaint', 'afterPaint');
 
       performance.measure('data', 'willTransition', 'dataLoaded');
-      performance.measure('adterData', 'dataLoaded', 'beforePaint');
+      performance.measure('afterData', 'dataLoaded', 'beforePaint');
 
       if (location.search === '?perf.tracing') {
         document.location.href = 'about:blank';
