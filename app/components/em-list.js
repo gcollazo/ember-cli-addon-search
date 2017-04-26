@@ -2,22 +2,20 @@ import Ember from 'ember';
 import { task, timeout } from 'ember-concurrency';
 import filterByQuery from 'ember-cli-filter-by-query/util/filter';
 
-const { localeCompare } = String.prototype;
-
 // when sorting the list of 3500 addons every little bit coints, rather then
 // constantly parsing and resplitting the paths (like time.modified), we
 // pre-split them once per sort.
 function prebuildGet(path) {
-  let split = path.split('.');
+  const split = path.split('.');
 
   return function(obj) {
-    for (let i =0; i < split.length; i++) {
-      let key = split[i];
+    for (let i = 0; i < split.length; i++) {
+      const key = split[i];
       if (typeof obj !== 'object') {
         return;
       }
-      let prop = obj[key];
-      let isObject = prop !== null && typeof prop === 'object';
+      const prop = obj[key];
+      const isObject = prop !== null && typeof prop === 'object';
       if (isObject && prop.isDescriptor === true) {
         // CP aware
         obj = prop.get(obj, key);
@@ -27,7 +25,7 @@ function prebuildGet(path) {
     }
 
     return obj;
-  }
+  };
 }
 
 const {
@@ -76,11 +74,17 @@ export default Component.extend({
     'sortProperty',
     'sortAscending',
     function() {
-      let prop = this.get('sortProperty');
-      let get = prebuildGet(prop); // one get function tuned for this sortProperty
+      const prop = this.get('sortProperty');
+      const get = prebuildGet(prop); // get function tuned for this sortProperty
 
       const sorted = this.get('filteredList').toArray().sort(function(x, y) {
-        return localeCompare.call(get(x) || '', get(y))
+        if (get(x) < get(y)) {
+          return -1;
+        }
+        if (get(x) > get(y)) {
+          return 1;
+        }
+        return 0;
       });
 
       if (this.get('sortAscending')) {
