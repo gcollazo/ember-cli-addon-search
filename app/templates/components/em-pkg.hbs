@@ -17,8 +17,8 @@
   {{/if}}
 </td>
 <td class="cell-clipboard hidden-xs">
-  {{em-icon-clipboard 
-  	command=installCommand 
+  {{em-icon-clipboard
+  	command=installCommand
   	color=(if hideInstallCommand '#7f7f7f' '#ea3723')
   }}
 </td>
@@ -40,7 +40,6 @@
 <td class="cell-downloads hidden-xs">
   {{observer-score
     score=pkg.emberObserver.score
-    isWIP=pkg.emberObserver.isWIP
     name=pkg.name}}
 </td>
 <td class="cell-updated hidden-xs">

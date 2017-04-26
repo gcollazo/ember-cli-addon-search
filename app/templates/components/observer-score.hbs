@@ -1,19 +1,5 @@
-{{#if isWIP}}
-  <a href="http://emberobserver.com/addons/{{name}}" target="_blank">
-    <div class="score score--WIP" title="Click to see details on emberobserver.com.">
-      WIP
-    </div>
-  </a>
-{{else}}
-  {{#if score}}
-    <a href="http://emberobserver.com/addons/{{name}}" target="_blank">
-      <div class="score score--s{{score}}" title="Scored [{{score}}] on Ember Observer. Click for details.">
-        {{score}}
-      </div>
-    </a>
-  {{else}}
-    <div class="score score--s" title="Not found in Ember Observer">
-      -
-    </div>
-  {{/if}}
-{{/if}}
+<a href="http://emberobserver.com/addons/{{name}}" target="_blank">
+  <div class="score score--s{{computedScore}}">
+    {{computedScore}}
+  </div>
+</a>
