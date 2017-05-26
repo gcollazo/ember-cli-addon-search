@@ -16,6 +16,7 @@ module.exports = function(defaults) {
       extensions: ['js']
     },
     fingerprint: {
+      enabled: parseFlag('FINGERPRINT', env === 'production'),
       exclude: ['gravatar.jpg']
     }
   };
