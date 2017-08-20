@@ -1,11 +1,12 @@
-/*jshint node:true*/
-/* global require, module */
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-var parseFlag = require('./config/parse-flag');
-var env = EmberApp.env();
+/* eslint-env node */
+'use strict';
 
-var AIRPLANE_MODE    = parseFlag('AIRPLANE_MODE', false);
-var GOOGLE_ANALYTICS = !AIRPLANE_MODE && parseFlag('GOOGLE_ANALYTICS', env === 'production');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const parseFlag = require('./config/parse-flag');
+const env = EmberApp.env();
+
+const AIRPLANE_MODE    = parseFlag('AIRPLANE_MODE', false);
+const GOOGLE_ANALYTICS = !AIRPLANE_MODE && parseFlag('GOOGLE_ANALYTICS', env === 'production');
 
 module.exports = function(defaults) {
   var options = {
