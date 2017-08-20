@@ -1,13 +1,14 @@
-/* jshint node: true */
+/* eslint-env node */
+'use strict';
 
-var parseFlag = require('./parse-flag');
-var AIRPLANE_MODE = parseFlag('AIRPLANE_MODE', false);
+let parseFlag = require('./parse-flag');
+let AIRPLANE_MODE = parseFlag('AIRPLANE_MODE', false);
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     host: AIRPLANE_MODE ? '/assets' : 'https://io-builtwithember-addons-data.s3.amazonaws.com',
     modulePrefix: 'ember-addons-website',
-    environment: environment,
+    environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {

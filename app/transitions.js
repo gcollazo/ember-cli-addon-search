@@ -1,7 +1,7 @@
 const opts = { duration: 300, delay: 100, easing: 'easeInOutQuart' };
 
 // Only animate between page results if the distance between the pages is one.
-// This avoids animations occuring when the distance between pages is possibly more 
+// This avoids animations occuring when the distance between pages is possibly more
 // that one (i.e. clicking the logo).
 
 export default function(){
@@ -20,4 +20,4 @@ export default function(){
     }),
     this.use('toRight', opts)
   );
-};
+}

@@ -3,7 +3,7 @@ import { test, moduleForComponent } from 'ember-qunit';
 moduleForComponent('em-pkg', 'Unit | Component | em pkg', {
   // Specify the other units that are required for this test
   needs: [
-  	'service:moment',
+    'service:moment',
     'helper:split-prefix',
     'helper:moment-from-now',
     'component:observer-score',
