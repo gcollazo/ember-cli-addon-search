@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint-env node */
 module.exports = function(deployTarget) {
   var ENV = {
     build: {},
@@ -6,13 +6,11 @@ module.exports = function(deployTarget) {
       activateOnDeploy: true
     },
     s3: {
-      accessKeyId: process.env.AWS_KEY,
-      secretAccessKey: process.env.AWS_SECRET,
+      profile: process.env.AWS_PROFILE,
       filePattern: '*'
     },
     cloudfront: {
-      accessKeyId: process.env.AWS_KEY,
-      secretAccessKey: process.env.AWS_SECRET
+      profile: process.env.AWS_PROFILE
     }
   };
 
