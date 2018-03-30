@@ -1,9 +1,6 @@
-import Ember from 'ember';
-
-const {
-  Component,
-  computed
-} = Ember;
+import $ from 'jquery';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   tagName: 'div',
@@ -15,14 +12,14 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    Ember.$(document).on('keyup', (event) => {
+    $(document).on('keyup', (event) => {
       this.onGlobalKeyUp(event);
     });
   },
 
   willDestroyElement() {
     this._super(...arguments);
-    Ember.$(document).off('keyup');
+    $(document).off('keyup');
   },
 
   onGlobalKeyUp(event) {

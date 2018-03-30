@@ -1,17 +1,14 @@
-import Ember from 'ember';
+import { readOnly } from '@ember/object/computed';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
 import moment from 'moment';
-
-const {
-  Component,
-  computed
-} = Ember;
 
 export default Component.extend({
   tagName: 'tr',
   classNames: ['package'],
 
-  downloads: computed.readOnly('pkg.downloads.downloads'),
-  user: computed.readOnly('pkg._npmUser'),
+  downloads: readOnly('pkg.downloads.downloads'),
+  user: readOnly('pkg._npmUser'),
   hideInstallCommand: true,
 
   installCommand: computed('pkg.name', function() {

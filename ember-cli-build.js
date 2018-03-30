@@ -1,11 +1,11 @@
-/*jshint node:true*/
-/* global require, module */
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-var parseFlag = require('./config/parse-flag');
-var env = EmberApp.env();
+/* eslint-env node */
+'use strict';
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const parseFlag = require('./config/parse-flag');
+const env = EmberApp.env();
 
-var AIRPLANE_MODE    = parseFlag('AIRPLANE_MODE', false);
-var GOOGLE_ANALYTICS = !AIRPLANE_MODE && parseFlag('GOOGLE_ANALYTICS', env === 'production');
+const AIRPLANE_MODE    = parseFlag('AIRPLANE_MODE', false);
+const GOOGLE_ANALYTICS = !AIRPLANE_MODE && parseFlag('GOOGLE_ANALYTICS', env === 'production');
 
 module.exports = function(defaults) {
   var options = {
@@ -33,7 +33,7 @@ module.exports = function(defaults) {
 
   options.sourcemaps.enabled = parseFlag('SOURCEMAPS', env !== 'production');
 
-  var app = new EmberApp(defaults, options);
+  let app = new EmberApp(defaults, options);
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
@@ -47,8 +47,8 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-  app.import('bower_components/bootstrap/dist/css/bootstrap.min.css');
-  app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+  app.import('node_modules/bootstrap/dist/css/bootstrap.min.css');
+  app.import('node_modules/bootstrap/dist/js/bootstrap.min.js');
 
   if (AIRPLANE_MODE) {
     app.import('vendor/airplane-mode/addons.json', { destDir: 'assets' });

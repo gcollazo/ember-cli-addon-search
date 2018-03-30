@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { equal } from '@ember/object/computed';
 import { task, timeout } from 'ember-concurrency';
 import filterByQuery from 'ember-cli-filter-by-query/util/filter';
 
@@ -27,12 +29,6 @@ function prebuildGet(path) {
     return obj;
   };
 }
-
-const {
-  Component,
-  computed,
-  computed: { equal }
-} = Ember;
 
 const QUERY_DEBOUNCE = 300;
 
