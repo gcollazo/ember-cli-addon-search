@@ -1,8 +1,5 @@
-import Ember from 'ember';
-
-const {
-  Route
-} = Ember;
+import { schedule } from '@ember/runloop';
+import Route from '@ember/routing/route';
 
 export default Route.extend({
   queryParams: {
@@ -17,7 +14,7 @@ export default Route.extend({
 
   afterModel() {
     performance.mark('dataLoaded');
-    Ember.run.schedule('afterRender', renderEnd);
+    schedule('afterRender', renderEnd);
   }
 });
 

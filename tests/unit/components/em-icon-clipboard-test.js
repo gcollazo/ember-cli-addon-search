@@ -1,20 +1,15 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('em-icon-clipboard', 'Unit | Component | em icon clipboard', {
-  // Specify the other units that are required for this test
-  needs: ['component:copy-button'],
+module('Unit | Component | em icon clipboard', function(hooks) {
+  setupRenderingTest(hooks);
 
-  unit: true
-});
+  test('it renders', async function(assert) {
+    assert.expect(0);
 
-test('it renders', function(assert) {
-  assert.expect(2);
-
-  // Creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
-
-  // Renders the component to the page
-  this.render();
-  assert.equal(component._state, 'inDOM');
+    // Renders the component to the page
+    await render(hbs`{{em-icon-clipboard}}`);
+  });
 });

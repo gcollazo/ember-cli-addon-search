@@ -1,25 +1,16 @@
-import { test, moduleForComponent } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
+import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('em-pkg', 'Unit | Component | em pkg', {
-  // Specify the other units that are required for this test
-  needs: [
-  	'service:moment',
-    'helper:split-prefix',
-    'helper:moment-from-now',
-    'component:observer-score',
-    'component:em-icon-clipboard'
-  ],
-  unit: true
-});
+module('Unit | Component | em pkg', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(2);
+  test('it renders', async function(assert) {
+    assert.expect(0);
 
-  // Creates the component instance
-  var component = this.subject();
-  assert.equal(component._state, 'preRender');
+    // Renders the component to the page
+    await render(hbs`{{em-pkg}}`);
 
-  // Renders the component to the page
-  this.render();
-  assert.equal(component._state, 'inDOM');
+  });
 });

@@ -12,8 +12,8 @@
     {{content-for "head"}}
 
     <link rel="shortcut icon" href="{{rootURL}}assets/favicon.png">
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/ember-addons-website.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/ember-addons-website.css">
 
     {{content-for "snippets/perf-utils"}}
 
@@ -68,14 +68,14 @@
     {{content-for "snippets/google-analytics"}}
 
     <script>performance.mark("beforeVendor");</script>
-    <script src="assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
     <script>performance.mark("beforeApp");</script>
     <script>
       if (window.location.search === "?perf.profile") {
         console.profile("initialRender");
       }
     </script>
-    <script src="assets/ember-addons-website.js"></script>
+    <script src="{{rootURL}}assets/ember-addons-website.js"></script>
     <script>performance.mark("afterApp");</script>
 
     {{content-for "body-footer"}}

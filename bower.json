@@ -1,9 +1,0 @@
-{
-  "name": "ember-addons-website",
-  "dependencies": {
-    "bootstrap": "~3.3.2",
-    "sifter": "~0.4.1",
-    "moment": "^2.8.0",
-    "moment-timezone": "^0.5.0"
-  }
-}

@@ -1,9 +1,5 @@
-import Ember from 'ember';
-
-const {
-  Controller,
-  computed: { readOnly }
-} = Ember;
+import Controller from '@ember/controller';
+import { readOnly } from '@ember/object/computed';
 
 export default Controller.extend({
   queryParams: ['query', 'page'],
