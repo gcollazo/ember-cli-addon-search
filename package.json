@@ -56,7 +56,7 @@
     "ember-load-initializers": "^1.0.0",
     "ember-moment": "^7.6.0",
     "ember-resolver": "^4.5.5",
-    "ember-source": "^2.16.2",
+    "ember-source": "^3.0.0",
     "eslint-config-blimp": "^7.0.0",
     "liquid-fire": "^0.29.2",
     "loader.js": "^4.0.10"

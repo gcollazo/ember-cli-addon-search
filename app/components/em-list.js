@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { computed, get } from '@ember/object';
 import { equal } from '@ember/object/computed';
 import { task, timeout } from 'ember-concurrency';
 import filterByQuery from 'ember-cli-filter-by-query/util/filter';
@@ -13,17 +13,10 @@ function prebuildGet(path) {
   return function(obj) {
     for (let i = 0; i < split.length; i++) {
       const key = split[i];
-      if (typeof obj !== 'object') {
+      if (typeof obj !== 'object' && obj !== null) {
         return;
       }
-      const prop = obj[key];
-      const isObject = prop !== null && typeof prop === 'object';
-      if (isObject && prop.isDescriptor === true) {
-        // CP aware
-        obj = prop.get(obj, key);
-      } else {
-        obj = prop;
-      }
+      obj = get(obj, key);
     }
 
     return obj;
@@ -74,13 +67,9 @@ export default Component.extend({
       const get = prebuildGet(prop); // get function tuned for this sortProperty
 
       const sorted = this.get('filteredList').toArray().sort(function(x, y) {
-        if (get(x) < get(y)) {
-          return -1;
-        }
-        if (get(x) > get(y)) {
-          return 1;
-        }
-        return 0;
+        const x1 = get(x);
+        const y1 = get(y);
+        return x1 < y1 ? -1 : x1 > y1 ? 1 : 0;
       });
 
       if (this.get('sortAscending')) {
