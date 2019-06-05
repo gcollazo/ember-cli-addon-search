@@ -3,6 +3,10 @@
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
+## Deprecated
+
+This project has been deprecated, please visit [Ember Observer](https://emberobserver.com).
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
